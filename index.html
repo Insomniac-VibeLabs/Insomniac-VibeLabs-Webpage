@@ -126,11 +126,103 @@
     </ul>
   </section>
 
+  <style>
+  .map {
+    margin: 1.5rem 0;
+    padding: 1.4rem 1.25rem 1.5rem;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  .map figcaption { margin-top: 1.1rem; color: var(--muted); font-size: .9rem; }
+  .path { list-style: none; margin: 0; padding: 0; }
+  .path li { position: relative; padding: 0 0 1.4rem 2.1rem; }
+  .path li:last-child { padding-bottom: 0; }
+  .path li::before {
+    content: ""; position: absolute; left: .55rem; top: 1.15rem; bottom: -.45rem;
+    width: 1px; background: var(--line);
+  }
+  .path li:last-child::before { display: none; }
+  .path li::after {
+    content: ""; position: absolute; left: .2rem; top: .45rem;
+    width: .7rem; height: .7rem; border-radius: 50%;
+    border: 1px solid var(--moon); background: var(--panel);
+  }
+  .path li.now::after {
+    background: var(--moon);
+    box-shadow: 0 0 14px 2px rgba(209, 188, 161, .35);
+  }
+  .path .tag {
+    display: block; font: 500 .75rem/1.3 var(--sans);
+    letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+  }
+  .path .step { display: block; font: 600 1.05rem/1.4 var(--serif); color: var(--text); }
+  .path .why { display: block; margin-top: .1rem; color: var(--muted); font-size: .95rem; line-height: 1.55; }
+  </style>
   <section>
-    <h2>Plans and roadmaps</h2>
-    <p>There aren't any. No strategy, no milestones, no schedule. Things get worked on when there's energy and curiosity, usually at an hour most people would call unreasonable.</p>
-    <p>Everything is public on <a href="https://github.com/Insomniac-VibeLabs">GitHub</a> if you want to poke around.</p>
+    <h2>Where two-key-concept is headed</h2>
+    <p>Okay, so there's a loose roadmap now. It's less a schedule and more a list of things we'd like to poke at next, roughly in the order they make sense. No dates, no promises, and the order can shuffle whenever a better idea shows up at 3 a.m.</p>
+
+    <figure class="map" aria-labelledby="map-caption">
+      <ol class="path">
+        <li class="now">
+          <span class="tag">Today &middot; 0.2.1</span>
+          <span class="step">The prototype</span>
+          <span class="why">Policy VM, a panel of judges, single-use tokens, and an encrypted ledger. The part that already works.</span>
+        </li>
+        <li>
+          <span class="tag">0.3</span>
+          <span class="step">Key backup and recovery</span>
+          <span class="why">Because losing a key shouldn't be the end of the world.</span>
+        </li>
+        <li>
+          <span class="tag">0.4</span>
+          <span class="step">Ledger export for security monitoring</span>
+          <span class="why">Send the audit trail to the tools that watch for trouble.</span>
+        </li>
+        <li>
+          <span class="tag">0.5</span>
+          <span class="step">Virus and data-leak scanner hooks</span>
+          <span class="why">Plug in scanners that already exist. We're not writing our own.</span>
+        </li>
+        <li>
+          <span class="tag">0.6</span>
+          <span class="step">MCP adapter</span>
+          <span class="why">A checkpoint in front of MCP tool calls.</span>
+        </li>
+        <li>
+          <span class="tag">0.7</span>
+          <span class="step">Certificates and certificate recovery</span>
+          <span class="why">Proper identities for one person or a whole company, and a way back when one goes missing.</span>
+        </li>
+        <li>
+          <span class="tag">0.8</span>
+          <span class="step">Quantum-resistant signatures</span>
+          <span class="why">Hybrid signatures meant to hold up against future quantum computers.</span>
+        </li>
+        <li>
+          <span class="tag">0.9</span>
+          <span class="step">FIPS mode</span>
+          <span class="why">Run on a validated crypto module. The project itself still isn't validated.</span>
+        </li>
+        <li>
+          <span class="tag">0.10</span>
+          <span class="step">A local screen</span>
+          <span class="why">A small GUI for configuring things and auditing the ledger.</span>
+        </li>
+        <li>
+          <span class="tag">1.0</span>
+          <span class="step">Public review, then release</span>
+          <span class="why">Community-reviewed, not audited.</span>
+        </li>
+      </ol>
+      <figcaption id="map-caption">The glowing dot is what exists today. Everything below it is planned, not built.</figcaption>
+    </figure>
+
+    <p>The rough idea: make it safer to lose a key, easier to see what happened, and friendlier to the tools people already use. Backups and monitoring come first, then scanner hooks and an MCP checkpoint. After that comes the grown-up identity stuff, then a screen so you don't have to hand-edit config files.</p>
+    <p>Still a prototype, still no independent review. The full plan, nitty-gritty included, is in the <a href="https://github.com/Insomniac-VibeLabs/two-key-concept/blob/main/ROADMAP.md">roadmap</a> in the repo. Everything is public on <a href="https://github.com/Insomniac-VibeLabs">GitHub</a> if you want to poke around.</p>
   </section>
+
 
   <section>
     <h2>Disclaimer</h2>
