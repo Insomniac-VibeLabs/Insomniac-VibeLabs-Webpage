@@ -266,7 +266,7 @@
   <section>
     <h2>Quick questions</h2>
     <h3>How do you keep a prompt-injected AI agent from doing something dumb?</h3>
-    <p>Two-Key never lets the agent hold the keys. The agent only proposes an action, and two separate checks have to say yes. The first is a rules-based policy engine: it ignores the chatty English and only looks at a few hard facts about the call, like which tool, how much money, what kind of data, who's on the receiving end, and whether it can be undone. If anything's off, or the engine hits an error, the answer is no. The second is one or more LLM judges, from a different vendor than the agent, who vote on whether the action makes sense. Only when both agree does a short-lived, single-use token get issued. A hijacked agent can still ask, it just can't act on its own say-so.</p>
+    <p>Two-Key never lets the agent hold the keys. The agent only proposes an action, and two separate checks have to say yes. The first is a rules-based policy engine: it ignores the chatty English and only looks at a few hard facts about the call, like which tool, how much money, what kind of data, who's on the receiving end, and whether it can be undone. If anything's off, or the engine hits an error, the answer is no. The second is one or more LLM judges, that are never the agent itself, vote on whether the action makes sense. Only when both agree does a short-lived, single-use token get issued. A hijacked agent can still ask, it just can't act on its own say-so.</p>
     <h3>Is it ready for production?</h3>
     <p>Nope. It's a prototype with no independent review, and it isn't an antivirus or data-loss-prevention tool. Treat it as a concept to learn from and poke at.</p>
     <h3>What does it work with?</h3>
