@@ -100,6 +100,10 @@
     border-radius: 10px;
     padding: 1.15rem 1.25rem;
   }
+  .diff { margin: 1rem 0; padding-left: 1.25rem; }
+  .diff li { margin-bottom: .7rem; }
+  .diff strong { color: var(--text); font-weight: 600; }
+  .repos .hook { font: 400 1.05rem/1.5 var(--serif); color: var(--text); font-style: italic; }
   .repos .topics { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .75rem; }
   .repos .topics a {
     font: 500 .78rem/1.3 var(--sans); padding: .2rem .6rem;
@@ -148,6 +152,7 @@
     <ul class="repos">
       <li>
         <a class="name" href="https://github.com/Insomniac-VibeLabs/two-key-concept">two-key-concept</a>
+        <p class="hook">Most agent guardrails ask an AI to police an AI. This one makes the AI's say-so not enough on its own.</p>
         <p>A small, open source take on AI agent security and authorization: two independent keys have to turn before an agent can act. One key is a policy engine with hard rules, the other is a panel of LLM judges, and a single-use capability token only gets minted when both say yes. Every call lands in an encrypted audit ledger. Think of it as a guardrail that sits between an agent and its tools, handy against prompt injection and agents that get a little too creative. It's a prototype, Apache-2.0, and it doesn't scan payloads.</p>
         <p class="topics" aria-label="Topics">
           <a href="https://github.com/topics/agent-security">agent security</a>
@@ -163,6 +168,20 @@
         </p>
       </li>
     </ul>
+  </section>
+
+  <section>
+    <h2>What's a little different about it</h2>
+    <p>Plenty of folks are working on AI agent security, and a lot of it is good. A few choices here are a bit unusual, though, so here's the short version.</p>
+    <ul class="diff">
+      <li><strong>One key never listens to the agent.</strong> It checks the real arguments against hard rules and ignores whatever the agent says about them. If the claim and the actual bytes don't match, that's a no.</li>
+      <li><strong>The other key is the judges,</strong> and a judge can't be the agent in a different hat. It checks credentials, endpoints, and accounts at start-up and refuses to run if they overlap.</li>
+      <li><strong>Silence counts as no.</strong> A judge that's missing, confused, or too slow is not a yes, and a fault in the rules check is a deny.</li>
+      <li><strong>The door key is picky.</strong> It's only minted in one place, works once, expires fast, and fits only the exact action that was approved. The part that runs the tool can check it but can't make one.</li>
+      <li><strong>Both checks answer.</strong> On a well-formed call, even when the rules say no, the judges still weigh in, so the log tells the whole story. That log is encrypted and hash-chained too.</li>
+      <li><strong>It says what it isn't.</strong> No payload scanning, no antivirus, no review yet. It's a different angle, not a silver bullet.</li>
+    </ul>
+    <p class="fine">Not a replacement for a content filter, a DLP product, or user login. It works fine next to them.</p>
   </section>
 
   <style>
@@ -267,6 +286,8 @@
     <h2>Quick questions</h2>
     <h3>How do you keep a prompt-injected AI agent from doing something dumb?</h3>
     <p>Two-Key never lets the agent hold the keys. The agent only proposes an action, and two separate checks have to say yes. The first is a rules-based policy engine: it ignores the chatty English and only looks at a few hard facts about the call, like which tool, how much money, what kind of data, who's on the receiving end, and whether it can be undone. If anything's off, or the engine hits an error, the answer is no. The second is one or more LLM judges, that are never the agent itself, vote on whether the action makes sense. Only when both agree does a short-lived, single-use token get issued. A hijacked agent can still ask, it just can't act on its own say-so.</p>
+    <h3>How is this different from a prompt-injection filter or a guardrails library?</h3>
+    <p>Filters look at the text and ask whether it seems bad. Two-Key asks a different question: is this action allowed, whatever the text says? It checks the real arguments against hard rules, has independent judges weigh in, and only then hands over a single-use token. The two ideas get along fine, and you can run a filter in front of it.</p>
     <h3>Is it ready for production?</h3>
     <p>Nope. It's a prototype with no independent review, and it isn't an antivirus or data-loss-prevention tool. Treat it as a concept to learn from and poke at.</p>
     <h3>What does it work with?</h3>
