@@ -7,19 +7,22 @@
 <title>two-key-concept: authorization for AI agents | Insomniac-VibeLabs</title>
 <meta name="description" content="Two-Key is an open source (Apache-2.0) prototype for AI agent security: two independent keys, a policy engine and one or more LLM judges, have to agree before an agent acts. Guardrails against prompt injection.">
 <link rel="canonical" href="https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/two-key.html">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2026-10-09">
+<meta property="article:modified_time" content="2026-10-09">
 <meta property="og:url" content="https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/two-key.html">
 <meta property="og:site_name" content="Insomniac-VibeLabs">
-<meta property="og:image" content="https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Insomniac-VibeLabs logo">
+<meta property="og:image" content="https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/og-two-key.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta property="og:image:alt" content="Diagram of an AI agent sending a proposed action to two separate checks, one labeled rules and one labeled judges. Both lead to a single check mark, and only then to the tool.">
 <meta property="og:title" content="two-key-concept: authorization for AI agents | Insomniac-VibeLabs">
 <meta property="og:description" content="Two independent keys have to turn before an AI agent can act. A policy engine, one or more LLM judges, single-use capability tokens and an audit ledger. Open source prototype.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="two-key-concept: authorization for AI agents | Insomniac-VibeLabs">
 <meta name="twitter:description" content="Two independent keys have to turn before an AI agent can act. A policy engine, one or more LLM judges, single-use capability tokens and an audit ledger. Open source prototype.">
-<meta name="twitter:image" content="https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/og-image.png">
+<meta name="twitter:image" content="https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/og-two-key.png">
+<meta name="twitter:image:alt" content="Diagram of an AI agent sending a proposed action to two separate checks, one labeled rules and one labeled judges. Both lead to a single check mark, and only then to the tool.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#070d12">
 <link rel="icon" type="image/png" href="apple-touch-icon.png">
@@ -29,6 +32,28 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "TechArticle",
+      "headline": "two-key-concept: authorization for AI agents",
+      "description": "Two-Key is an open source (Apache-2.0) prototype for AI agent security: two independent keys, a policy engine and one or more LLM judges, have to agree before an agent acts. Guardrails against prompt injection.",
+      "image": [
+        "https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/og-two-key.png"
+      ],
+      "datePublished": "2026-10-09",
+      "dateModified": "2026-10-09",
+      "author": {
+        "@type": "Organization",
+        "name": "Insomniac-VibeLabs",
+        "url": "https://github.com/Insomniac-VibeLabs"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Insomniac-VibeLabs",
+        "url": "https://github.com/Insomniac-VibeLabs"
+      },
+      "mainEntityOfPage": "https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/two-key.html",
+      "inLanguage": "en"
+    },
+    {
       "@type": "SoftwareSourceCode",
       "name": "two-key-concept",
       "description": "Two independent keys must turn before an AI agent can act. A policy engine, one or more LLM judges, single-use capability tokens and an encrypted audit ledger. Prototype, no independent review.",
@@ -37,7 +62,11 @@
       "programmingLanguage": "Python",
       "license": "https://www.apache.org/licenses/LICENSE-2.0",
       "keywords": "agent security, agentic AI, AI agents, AI governance, AI safety, AI security, authorization, capability tokens, guardrails, LLM security, policy engine, prompt injection, LLM as a judge, audit log, agent authorization, policy as code",
-      "author": { "@type": "Organization", "name": "Insomniac-VibeLabs", "url": "https://github.com/Insomniac-VibeLabs" }
+      "author": {
+        "@type": "Organization",
+        "name": "Insomniac-VibeLabs",
+        "url": "https://github.com/Insomniac-VibeLabs"
+      }
     },
     {
       "@type": "FAQPage",
@@ -92,6 +121,7 @@
     <a href="./" aria-label="Insomniac-VibeLabs home"><img class="mark" src="logo-400.jpg" alt="Insomniac-VibeLabs logo" width="72" height="72" style="margin-top:1.25rem"></a>
     <h1>two-key-concept</h1>
     <p class="tagline">Two keys, one agent, and the agent only gets one of them.</p>
+    <p class="fine updated">Last updated <time datetime="2026-10-09">October 9, 2026</time></p>
   </div>
 </header>
 
@@ -100,6 +130,10 @@
   <section>
     <h2>The short version</h2>
     <p>Two-Key is a small, open source take on AI agent security. An agent never holds the keys. It proposes an action, and two independent checks, a policy engine with hard rules and one or more LLM judges, both have to say yes before a single-use token lets the action happen. The code lives in <a href="https://github.com/Insomniac-VibeLabs/two-key-concept">two-key-concept</a> on GitHub.</p>
+    <figure class="shot">
+      <img src="og-two-key.png" width="1280" height="720" alt="Diagram of an AI agent sending a proposed action to two separate checks, one labeled rules and one labeled judges. Both lead to a single check mark, and only then to the tool.">
+      <figcaption>The agent asks. Two separate checks answer. The tool only runs if both said yes.</figcaption>
+    </figure>
   </section>
 
   <section>
