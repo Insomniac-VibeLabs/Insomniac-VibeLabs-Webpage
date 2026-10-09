@@ -110,7 +110,9 @@
       <li>
         <a class="name" href="https://github.com/Insomniac-VibeLabs/enerchain" title="Enerchain on GitHub: electricity as currency">enerchain</a>
         <p class="hook">Mining spends electricity to make a coin. This one flips it: the coin is the electricity you delivered.</p>
-        <p>A research prototype for an electricity currency. A site gets two sealed meters, one at the solar array or generator and one where it connects to the grid. Each meter counts energy both ways and signs a record for every kilowatt-hour of net export, using post-quantum ML-DSA signatures. A public ledger checks both signatures and credits the smaller of the two counts, so one meter can't mint alone and a battery that buys at night and sells at noon mints nothing. The repo has a Python devnet with wallet and ledger, chip RTL that simulates end to end, signer firmware, and a board design. It's all simulation and paperwork so far: nothing has been built or taped out. Apache-2.0 for the software and docs, CERN-OHL-S-2.0 for the hardware.</p>
+        <p>A research prototype for an electricity currency. A site gets two sealed meters, one at the solar array or generator and one where it connects to the grid. Each meter counts energy both ways and signs a record for every kilowatt-hour of net export, using post-quantum ML-DSA signatures. A battery that buys at night and sells at noon mints nothing. The repo has a Python devnet with wallet and ledger, chip RTL that simulates end to end, signer firmware, and a board design. It's all simulation and paperwork so far: nothing has been built or taped out. Apache-2.0 for the software and docs, CERN-OHL-S-2.0 for the hardware.</p>
+        <p>The counting isn't left to a program. In the design, a small dedicated chip counts the meter's pulses and builds each record in fixed logic, and nothing outside it can write to its counters. A separate secure chip holds the key and signs only what that counter chip hands it, running a small published firmware image. So no app, inverter, or server gets to pick the number.</p>
+        <p>And one meter isn't enough. Every site has two of them, each sealed, each with its own key: one at the generator says the power was made, and one at the grid connection says it left the site. Nothing gets credited unless both have signed, and then only up to the smaller of the two counts. A meter that's been fooled or tampered with can't mint more than its partner saw.</p>
         <p class="topics" aria-label="Topics">
           <a href="https://github.com/topics/cryptocurrency">cryptocurrency</a>
           <a href="https://github.com/topics/dilithium">Dilithium</a>
@@ -137,8 +139,8 @@
   </section>
 
   <section>
-    <h2>The longer versions</h2>
-    <p>Each project gets its own page: what makes it a little different, where it's headed, and the questions people actually ask. Pick whichever one kept you up.</p>
+    <h2>Still awake?</h2>
+    <p>Each project has its own page with more of the story: what makes it a bit different, where it could go, and some of the usual questions. No particular order, start wherever you like.</p>
     <ul class="pages">
       <li>
         <a href="two-key.html">two-key-concept</a>
