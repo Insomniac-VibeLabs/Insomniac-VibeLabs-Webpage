@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
-<title>Insomniac-VibeLabs: Two-Key, authorization for AI agents</title>
-<meta name="description" content="Insomniac-VibeLabs makes Two-Key, an open source (Apache-2.0) prototype for AI agent security: two independent keys, a policy engine and one or more LLM judges, have to agree before an agent acts. Guardrails against prompt injection.">
+<title>Insomniac-VibeLabs: hobby projects built after dark</title>
+<meta name="description" content="Insomniac-VibeLabs is a hobby lab for ideas vibe coded at night. Current projects: Two-Key, an open source AI agent security prototype, and Enerchain, an electricity-as-currency research prototype with a Python devnet, chip RTL and board design.">
 <link rel="canonical" href="https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/">
@@ -14,30 +14,16 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Insomniac-VibeLabs logo next to the words Two-Key: two independent keys have to turn before an AI agent can act">
-<meta property="og:title" content="Insomniac-VibeLabs: Two-Key, authorization for AI agents">
-<meta property="og:description" content="Two independent keys have to turn before an AI agent can act. A policy engine, one or more LLM judges, single-use capability tokens and an audit ledger. Open source prototype.">
+<meta property="og:title" content="Insomniac-VibeLabs: hobby projects built after dark">
+<meta property="og:description" content="Ideas vibe coded at night, built on as a hobby. Two-Key (AI agent security) and Enerchain (electricity as currency). Open source prototypes.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Insomniac-VibeLabs: Two-Key, authorization for AI agents">
-<meta name="twitter:description" content="Two independent keys have to turn before an AI agent can act. Open source prototype.">
+<meta name="twitter:title" content="Insomniac-VibeLabs: hobby projects built after dark">
+<meta name="twitter:description" content="Ideas vibe coded at night, built on as a hobby. Two-Key and Enerchain, open source prototypes.">
 <meta name="twitter:image" content="https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/og-image.png">
 <meta name="twitter:image:alt" content="Insomniac-VibeLabs logo next to the words Two-Key">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#070d12">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareSourceCode",
-  "name": "two-key-concept",
-  "description": "Two independent keys must turn before an AI agent can act. A policy engine, one or more LLM judges, single-use capability tokens and an encrypted audit ledger. Prototype, no independent review.",
-  "url": "https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/",
-  "codeRepository": "https://github.com/Insomniac-VibeLabs/two-key-concept",
-  "programmingLanguage": "Python",
-  "license": "https://www.apache.org/licenses/LICENSE-2.0",
-  "keywords": "agent security, agentic AI, AI agents, AI governance, AI safety, AI security, authorization, capability tokens, guardrails, LLM security, policy engine, prompt injection, LLM as a judge, audit log, agent authorization, policy as code",
-  "author": { "@type": "Organization", "name": "Insomniac-VibeLabs", "url": "https://github.com/Insomniac-VibeLabs" }
-}
-</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -57,49 +43,11 @@
       "@id": "https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/#site",
       "url": "https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/",
       "name": "Insomniac-VibeLabs",
-      "description": "Ideas vibe coded at night until sleep shows up, then built on as a hobby. Home of Two-Key, an AI agent security prototype.",
+      "description": "Ideas vibe coded at night until sleep shows up, then built on as a hobby. Home of Two-Key (AI agent security) and Enerchain (electricity as currency), both prototypes.",
       "publisher": {
         "@id": "https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/#org"
       },
       "inLanguage": "en"
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How do you keep a prompt-injected AI agent from doing something dumb?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Two-Key never lets the agent hold the keys. The agent only proposes an action, and two separate checks have to say yes. The first is a rules-based policy engine: it ignores the chatty English and only looks at a few hard facts about the call, like which tool, how much money, what kind of data, who's on the receiving end, and whether it can be undone. If anything's off, or the engine hits an error, the answer is no. The second is one or more LLM judges, that are never the agent itself, vote on whether the action makes sense. Only when both agree does a short-lived, single-use token get issued. A hijacked agent can still ask, it just can't act on its own say-so."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How is this different from a prompt-injection filter or a guardrails library?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Filters look at the text and ask whether it seems bad. Two-Key asks a different question: is this action allowed, whatever the text says? It checks the real arguments against hard rules, has independent judges weigh in, and only then hands over a single-use token. The two ideas get along fine, and you can run a filter in front of it."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is it ready for production?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Nope. It's a prototype with no independent review, and it isn't an antivirus or data-loss-prevention tool. Treat it as a concept to learn from and poke at."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What does it work with?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Judges can be xAI/Grok, OpenAI, Anthropic, Gemini, or a local Ollama model. It's Python, and an MCP adapter is on the roadmap."
-          }
-        }
-      ]
     }
   ]
 }
@@ -108,97 +56,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --night: #0a1119;
-    --deep: #060b11;
-    --panel: #0e171f;
-    --line: #24333d;
-    --text: #e6d9c6;
-    --muted: #a1998a;
-    --moon: #d1bca1;
-    --link: #7ba3b1;
-    --serif: "Fraunces", Georgia, "Times New Roman", serif;
-    --sans: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  }
-  * { box-sizing: border-box; }
-  html { background: var(--deep); scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    color: var(--text);
-    font: 400 1.0625rem/1.7 var(--sans);
-    background:
-      radial-gradient(ellipse 90% 60% at 50% -10%, #14232e 0%, transparent 70%),
-      var(--night);
-    min-height: 100vh;
-    -webkit-font-smoothing: antialiased;
-  }
-  a { color: var(--link); text-underline-offset: 3px; text-decoration-thickness: 1px; }
-  a:hover { color: var(--text); }
-  a:focus-visible { outline: 2px solid var(--moon); outline-offset: 3px; border-radius: 3px; }
-  .org { white-space: nowrap; }
-
-  .wrap { max-width: 42rem; margin: 0 auto; padding: 0 1.5rem; }
-
-  header { text-align: center; padding: 4.5rem 0 3rem; }
-  .avatar-wrap {
-    width: 184px; height: 184px; margin: 0 auto 1.75rem;
-    border-radius: 50%;
-    box-shadow: 0 0 0 1px var(--line), 0 0 60px 8px rgba(209, 188, 161, .14);
-    animation: glow 7s ease-in-out infinite;
-  }
-  .avatar-wrap img {
-    width: 100%; height: 100%; border-radius: 50%; display: block;
-    object-fit: cover; background: var(--panel);
-  }
-  @keyframes glow {
-    0%, 100% { box-shadow: 0 0 0 1px var(--line), 0 0 40px 4px rgba(209, 188, 161, .08); }
-    50%      { box-shadow: 0 0 0 1px var(--line), 0 0 72px 12px rgba(209, 188, 161, .20); }
-  }
-  h1 {
-    font: 600 clamp(2.1rem, 7vw, 3.25rem)/1.1 var(--serif);
-    letter-spacing: -0.01em;
-    margin: 0 0 1rem;
-    color: var(--moon);
-  }
-  .tagline { font: 400 1.25rem/1.5 var(--serif); color: var(--text); margin: 0 auto; max-width: 30rem; }
-
-  main section { padding: 2.25rem 0; border-top: 1px solid var(--line); }
-  main section:first-child { border-top: 0; }
-  h2 { font: 600 1.5rem/1.3 var(--serif); margin: 0 0 1rem; color: var(--text); }
-  h3 { font: 600 1.05rem/1.4 var(--serif); margin: 1.4rem 0 .4rem; color: var(--text); }
-  p { margin: 0 0 1rem; }
-  p:last-child { margin-bottom: 0; }
-
-  .repos { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; gap: 1rem; }
-  .repos li {
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 1.15rem 1.25rem;
-  }
-  .diff { margin: 1rem 0; padding-left: 1.25rem; }
-  .diff li { margin-bottom: .7rem; }
-  .diff strong { color: var(--text); font-weight: 600; }
-  .repos .hook { font: 400 1.05rem/1.5 var(--serif); color: var(--text); font-style: italic; }
-  .repos .topics { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .75rem; }
-  .repos .topics a {
-    font: 500 .78rem/1.3 var(--sans); padding: .2rem .6rem;
-    border: 1px solid var(--line); border-radius: 999px; color: var(--muted);
-  }
-  .repos .name { font: 600 1.15rem/1.4 var(--serif); display: block; margin-bottom: .35rem; }
-  .repos p { color: var(--muted); font-size: 1rem; }
-
-  .fine { color: var(--muted); font-size: .95rem; }
-
-  footer { padding: 2.5rem 0 3.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
-  footer p { margin-bottom: .6rem; }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .avatar-wrap { animation: none; }
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -225,7 +83,7 @@
 
   <section>
     <h2>What's been built so far</h2>
-    <p>The first projects happen to lean toward AI agent security. That's where the 3 a.m. thoughts went, not a declared focus.</p>
+    <p>Two projects so far, and they don't have a lot in common except the hour they were dreamed up. One is about keeping AI agents on a leash, the other is about money made from electricity. That's where the 3 a.m. thoughts went, not a declared focus.</p>
     <ul class="repos">
       <li>
         <a class="name" href="https://github.com/Insomniac-VibeLabs/two-key-concept" title="two-key-concept on GitHub: authorization for AI agents">two-key-concept</a>
@@ -247,138 +105,56 @@
           <a href="https://github.com/topics/audit-log">audit log</a>
           <a href="https://github.com/topics/policy-as-code">policy as code</a>
         </p>
+        <a class="more" href="two-key.html">More about two-key-concept &rarr;</a>
+      </li>
+      <li>
+        <a class="name" href="https://github.com/Insomniac-VibeLabs/enerchain" title="Enerchain on GitHub: electricity as currency">enerchain</a>
+        <p class="hook">Mining spends electricity to make a coin. This one flips it: the coin is the electricity you delivered.</p>
+        <p>A research prototype for an electricity currency. A site gets two sealed meters, one at the solar array or generator and one where it connects to the grid. Each meter counts energy both ways and signs a record for every kilowatt-hour of net export, using post-quantum ML-DSA signatures. A public ledger checks both signatures and credits the smaller of the two counts, so one meter can't mint alone and a battery that buys at night and sells at noon mints nothing. The repo has a Python devnet with wallet and ledger, chip RTL that simulates end to end, signer firmware, and a board design. It's all simulation and paperwork so far: nothing has been built or taped out. Apache-2.0 for the software and docs, CERN-OHL-S-2.0 for the hardware.</p>
+        <p class="topics" aria-label="Topics">
+          <a href="https://github.com/topics/cryptocurrency">cryptocurrency</a>
+          <a href="https://github.com/topics/dilithium">Dilithium</a>
+          <a href="https://github.com/topics/distributed-ledger">distributed ledger</a>
+          <a href="https://github.com/topics/electricity">electricity</a>
+          <a href="https://github.com/topics/energy">energy</a>
+          <a href="https://github.com/topics/energy-trading">energy trading</a>
+          <a href="https://github.com/topics/ml-dsa">ML-DSA</a>
+          <a href="https://github.com/topics/open-hardware">open hardware</a>
+          <a href="https://github.com/topics/post-quantum-cryptography">post-quantum cryptography</a>
+          <a href="https://github.com/topics/proof-of-generation">proof of generation</a>
+          <a href="https://github.com/topics/prosumer">prosumer</a>
+          <a href="https://github.com/topics/python">Python</a>
+          <a href="https://github.com/topics/renewable-energy">renewable energy</a>
+          <a href="https://github.com/topics/smart-grid">smart grid</a>
+          <a href="https://github.com/topics/smart-meter">smart meter</a>
+          <a href="https://github.com/topics/solar">solar</a>
+          <a href="https://github.com/topics/verilog">Verilog</a>
+          <a href="https://github.com/topics/whitepaper">whitepaper</a>
+        </p>
+        <a class="more" href="enerchain.html">More about enerchain &rarr;</a>
       </li>
     </ul>
   </section>
 
   <section>
-    <h2>What's a little different about it</h2>
-    <p>Plenty of folks are working on AI agent security, and a lot of it is good. A few choices here are a bit unusual, though, so here's the short version.</p>
-    <ul class="diff">
-      <li><strong>One key never listens to the agent.</strong> It checks the real arguments against hard rules and ignores whatever the agent says about them. If the claim and the actual bytes don't match, that's a no.</li>
-      <li><strong>The other key is the judges,</strong> and a judge can't be the agent in a different hat. It checks credentials, endpoints, and accounts at start-up and refuses to run if they overlap.</li>
-      <li><strong>Silence counts as no.</strong> A judge that's missing, confused, or too slow is not a yes, and a fault in the rules check is a deny.</li>
-      <li><strong>The door key is picky.</strong> It's only minted in one place, works once, expires fast, and fits only the exact action that was approved. The part that runs the tool can check it but can't make one.</li>
-      <li><strong>Both checks answer.</strong> On a well-formed call, even when the rules say no, the judges still weigh in, so the log tells the whole story. That log is encrypted and hash-chained too.</li>
-      <li><strong>It says what it isn't.</strong> No payload scanning, no antivirus, no review yet. It's a different angle, not a silver bullet.</li>
+    <h2>The longer versions</h2>
+    <p>Each project gets its own page: what makes it a little different, where it's headed, and the questions people actually ask. Pick whichever one kept you up.</p>
+    <ul class="pages">
+      <li>
+        <a href="two-key.html">two-key-concept</a>
+        <p>Authorization for AI agents. What's different about it, the roadmap, and quick questions about prompt injection and guardrails.</p>
+      </li>
+      <li>
+        <a href="enerchain.html">enerchain</a>
+        <p>Electricity as currency. What's different about it, the roadmap, and quick questions about meters, mining, and what's actually been built.</p>
+      </li>
     </ul>
-    <p class="fine">Not a replacement for a content filter, a DLP product, or user login. It works fine next to them.</p>
-  </section>
-
-  <style>
-  .map {
-    margin: 1.5rem 0;
-    padding: 1.4rem 1.25rem 1.5rem;
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-  }
-  .map figcaption { margin-top: 1.1rem; color: var(--muted); font-size: .9rem; }
-  .path { list-style: none; margin: 0; padding: 0; }
-  .path li { position: relative; padding: 0 0 1.4rem 2.1rem; }
-  .path li:last-child { padding-bottom: 0; }
-  .path li::before {
-    content: ""; position: absolute; left: .55rem; top: 1.15rem; bottom: -.45rem;
-    width: 1px; background: var(--line);
-  }
-  .path li:last-child::before { display: none; }
-  .path li::after {
-    content: ""; position: absolute; left: .2rem; top: .45rem;
-    width: .7rem; height: .7rem; border-radius: 50%;
-    border: 1px solid var(--moon); background: var(--panel);
-  }
-  .path li.now::after {
-    background: var(--moon);
-    box-shadow: 0 0 14px 2px rgba(209, 188, 161, .35);
-  }
-  .path .tag {
-    display: block; font: 500 .75rem/1.3 var(--sans);
-    letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
-  }
-  .path .step { display: block; font: 600 1.05rem/1.4 var(--serif); color: var(--text); }
-  .path .why { display: block; margin-top: .1rem; color: var(--muted); font-size: .95rem; line-height: 1.55; }
-  </style>
-  <section>
-    <h2>Where two-key-concept is headed</h2>
-    <p>Okay, so there's a loose roadmap now. It's less a schedule and more a list of things we'd like to poke at next, roughly in the order they make sense. No dates, no promises, and the order can shuffle whenever a better idea shows up at 3 a.m.</p>
-
-    <figure class="map" aria-labelledby="map-caption">
-      <ol class="path">
-        <li class="now">
-          <span class="tag">Today &middot; 0.2.1</span>
-          <span class="step">The prototype</span>
-          <span class="why">Policy VM, one or more judges, single-use tokens, and an encrypted ledger. The part that already works.</span>
-        </li>
-        <li>
-          <span class="tag">0.3</span>
-          <span class="step">Key backup and recovery</span>
-          <span class="why">Because losing a key shouldn't be the end of the world.</span>
-        </li>
-        <li>
-          <span class="tag">0.4</span>
-          <span class="step">Ledger export for security monitoring</span>
-          <span class="why">Send the audit trail to the tools that watch for trouble.</span>
-        </li>
-        <li>
-          <span class="tag">0.5</span>
-          <span class="step">Virus and data-leak scanner hooks</span>
-          <span class="why">Plug in scanners that already exist. We're not writing our own.</span>
-        </li>
-        <li>
-          <span class="tag">0.6</span>
-          <span class="step">MCP adapter</span>
-          <span class="why">A checkpoint in front of MCP tool calls.</span>
-        </li>
-        <li>
-          <span class="tag">0.7</span>
-          <span class="step">Certificates and certificate recovery</span>
-          <span class="why">Proper identities for one person or a whole company, and a way back when one goes missing.</span>
-        </li>
-        <li>
-          <span class="tag">0.8</span>
-          <span class="step">Quantum-resistant signatures</span>
-          <span class="why">Hybrid signatures meant to hold up against future quantum computers.</span>
-        </li>
-        <li>
-          <span class="tag">0.9</span>
-          <span class="step">FIPS mode</span>
-          <span class="why">Run on a validated crypto module. The project itself still isn't validated.</span>
-        </li>
-        <li>
-          <span class="tag">0.10</span>
-          <span class="step">A local screen</span>
-          <span class="why">A small GUI for configuring things and auditing the ledger.</span>
-        </li>
-        <li>
-          <span class="tag">1.0</span>
-          <span class="step">Public review, then release</span>
-          <span class="why">Community-reviewed, not audited.</span>
-        </li>
-      </ol>
-      <figcaption id="map-caption">The glowing dot is what exists today. Everything below it is planned, not built.</figcaption>
-    </figure>
-
-    <p>The rough idea: make it safer to lose a key, easier to see what happened, and friendlier to the tools people already use. Backups and monitoring come first, then scanner hooks and an MCP checkpoint. After that comes the grown-up identity stuff, then a screen so you don't have to hand-edit config files.</p>
-    <p>Still a prototype, still no independent review. The full plan, nitty-gritty included, is in the <a href="https://github.com/Insomniac-VibeLabs/two-key-concept/blob/main/ROADMAP.md">roadmap</a> in the repo. Everything is public on <a href="https://github.com/Insomniac-VibeLabs">GitHub</a> if you want to poke around.</p>
-  </section>
-
-
-  <section>
-    <h2>Quick questions</h2>
-    <h3>How do you keep a prompt-injected AI agent from doing something dumb?</h3>
-    <p>Two-Key never lets the agent hold the keys. The agent only proposes an action, and two separate checks have to say yes. The first is a rules-based policy engine: it ignores the chatty English and only looks at a few hard facts about the call, like which tool, how much money, what kind of data, who's on the receiving end, and whether it can be undone. If anything's off, or the engine hits an error, the answer is no. The second is one or more LLM judges, that are never the agent itself, vote on whether the action makes sense. Only when both agree does a short-lived, single-use token get issued. A hijacked agent can still ask, it just can't act on its own say-so.</p>
-    <h3>How is this different from a prompt-injection filter or a guardrails library?</h3>
-    <p>Filters look at the text and ask whether it seems bad. Two-Key asks a different question: is this action allowed, whatever the text says? It checks the real arguments against hard rules, has independent judges weigh in, and only then hands over a single-use token. The two ideas get along fine, and you can run a filter in front of it.</p>
-    <h3>Is it ready for production?</h3>
-    <p>Nope. It's a prototype with no independent review, and it isn't an antivirus or data-loss-prevention tool. Treat it as a concept to learn from and poke at.</p>
-    <h3>What does it work with?</h3>
-    <p>Judges can be xAI/Grok, OpenAI, Anthropic, Gemini, or a local Ollama model. It's Python, and an MCP adapter is on the roadmap.</p>
   </section>
 
   <section>
     <h2>Disclaimer</h2>
     <p class="fine">Everything here, including the code, documentation, and this page, is provided "as is," without warranty of any kind, express or implied, including fitness for a particular purpose, accuracy, or non-infringement. <span class="org">Insomniac-VibeLabs</span> accepts no liability for any damages, losses, or other consequences arising from use of, or reliance on, any of it.</p>
-    <p class="fine">These are hobby projects and prototypes. They haven't had independent security review, so don't count on them to protect anything that matters. See each repository for its own license terms.</p>
+    <p class="fine">These are hobby projects and prototypes. They haven't had independent review, so don't count on them to protect anything that matters. See each repository for its own license terms.</p>
   </section>
 
 </main>
