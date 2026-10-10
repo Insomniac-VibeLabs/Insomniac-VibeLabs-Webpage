@@ -4,22 +4,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
-<title>enerchain: electricity as currency | Insomniac-VibeLabs</title>
-<meta name="description" content="Enerchain is an open source research prototype for an electricity currency: sealed meter pairs mint one token per kWh of net grid export, sign it with post-quantum ML-DSA, and record it on a public ledger.">
+<title>Enerchain: an electricity currency minted by meters, not miners | Insomniac-VibeLabs</title>
+<meta name="description" content="Enerchain is a hobby research prototype for an electricity currency. Two sealed meters count each kilowatt-hour a site sends to the grid and sign for it, and a public ledger credits the lower count. Simulation only so far.">
 <link rel="canonical" href="https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/enerchain.html">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2026-10-09">
+<meta property="article:modified_time" content="2026-10-09">
 <meta property="og:url" content="https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/enerchain.html">
 <meta property="og:site_name" content="Insomniac-VibeLabs">
-<meta property="og:image" content="https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Insomniac-VibeLabs logo">
-<meta property="og:title" content="enerchain: electricity as currency | Insomniac-VibeLabs">
-<meta property="og:description" content="Sealed meter pairs mint one token per kWh of net grid export, signed post-quantum and recorded on a public ledger. Open source research prototype.">
+<meta property="og:image" content="https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/og-enerchain.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta property="og:image:alt" content="Diagram of a solar array feeding a house through one sealed meter, with a second sealed meter at the grid connection. Both meters send signed records down to a ledger.">
+<meta property="og:title" content="Enerchain: an electricity currency minted by meters, not miners">
+<meta property="og:description" content="Two sealed meters count each kilowatt-hour a site sends to the grid and sign for it. A public ledger credits the lower count. Open source research prototype, simulation only so far.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="enerchain: electricity as currency | Insomniac-VibeLabs">
-<meta name="twitter:description" content="Sealed meter pairs mint one token per kWh of net grid export, signed post-quantum and recorded on a public ledger. Open source research prototype.">
-<meta name="twitter:image" content="https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/og-image.png">
+<meta name="twitter:title" content="Enerchain: an electricity currency minted by meters, not miners">
+<meta name="twitter:description" content="Two sealed meters count each kilowatt-hour a site sends to the grid and sign for it. A public ledger credits the lower count. Open source research prototype, simulation only so far.">
+<meta name="twitter:image" content="https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/og-enerchain.png">
+<meta name="twitter:image:alt" content="Diagram of a solar array feeding a house through one sealed meter, with a second sealed meter at the grid connection. Both meters send signed records down to a ledger.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#070d12">
 <link rel="icon" type="image/png" href="apple-touch-icon.png">
@@ -29,15 +32,47 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "TechArticle",
+      "headline": "Enerchain: an electricity currency minted by meters, not miners",
+      "description": "Enerchain is a hobby research prototype for an electricity currency. Two sealed meters count each kilowatt-hour a site sends to the grid and sign for it, and a public ledger credits the lower count. Simulation only so far.",
+      "image": [
+        "https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/og-enerchain.png"
+      ],
+      "datePublished": "2026-10-09",
+      "dateModified": "2026-10-09",
+      "author": {
+        "@type": "Organization",
+        "name": "Insomniac-VibeLabs",
+        "url": "https://github.com/Insomniac-VibeLabs"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Insomniac-VibeLabs",
+        "url": "https://github.com/Insomniac-VibeLabs"
+      },
+      "mainEntityOfPage": "https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/enerchain.html",
+      "inLanguage": "en"
+    },
+    {
       "@type": "SoftwareSourceCode",
       "name": "enerchain",
-      "description": "Electricity as currency: sealed meter pairs mint one token per kWh of net grid export, sign each one post-quantum (ML-DSA), and record it on a public ledger. Python devnet, chip RTL, signer firmware and board design. Research prototype, no independent review.",
+      "description": "Electricity as currency: two sealed meters each mint one token per kWh of net grid export and sign each record post-quantum (ML-DSA), and a public ledger credits the lower count. Python devnet, chip RTL, signer firmware and board design. Research prototype, nothing built, no independent review.",
       "url": "https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/enerchain.html",
       "codeRepository": "https://github.com/Insomniac-VibeLabs/enerchain",
-      "programmingLanguage": ["Python", "Verilog"],
-      "license": "https://www.apache.org/licenses/LICENSE-2.0",
+      "programmingLanguage": [
+        "Python",
+        "Verilog"
+      ],
+      "license": [
+        "https://www.apache.org/licenses/LICENSE-2.0",
+        "https://spdx.org/licenses/CERN-OHL-S-2.0.html"
+      ],
       "keywords": "cryptocurrency, dilithium, distributed ledger, electricity, energy, energy trading, ML-DSA, open hardware, post-quantum cryptography, proof of generation, prosumer, renewable energy, smart grid, smart meter, solar, whitepaper",
-      "author": { "@type": "Organization", "name": "Insomniac-VibeLabs", "url": "https://github.com/Insomniac-VibeLabs" }
+      "author": {
+        "@type": "Organization",
+        "name": "Insomniac-VibeLabs",
+        "url": "https://github.com/Insomniac-VibeLabs"
+      }
     },
     {
       "@type": "FAQPage",
@@ -63,7 +98,15 @@
           "name": "How can anyone trust a meter's number?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A site needs two sealed meters, one at the generator and one at the grid connection, and the ledger only credits the smaller of the two counts. The counting happens inside a small chip that nothing outside the seal can write to, and the signer only signs counters that go up. Opening the cover while powered wipes the key. Opening it while unpowered isn't caught yet, and the repo says so up front."
+            "text": "It takes two sealed meters, each with its own key: one at the generator and one at the grid connection. Both have to sign before the ledger credits anything, and it only credits the smaller of the two counts. By design, the counting is done by a small dedicated chip that nothing outside the seal can write to. A separate secure chip holds the key and signs only what that chip gives it, and only counters that go up. Opening the cover while powered wipes the key. Opening it while unpowered isn't caught yet, and the repo says so up front."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why two meters instead of one?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One meter can only say that energy passed through it. It can't say where that energy came from. So the generator meter says the power was made, the grid meter says it left the site, net of what came in, and the ledger credits the smaller count. A meter with no partner mints nothing. The pairing also caps the damage: a meter that's been opened or fooled can't mint past what the other one saw. If one person controls both meters and opens them together while they're unpowered, that cap doesn't help. It's on the open-items list."
           }
         },
         {
@@ -80,6 +123,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "The software is real and runs: a Python ledger, wallet and devnet, plus chip RTL that simulates end to end and signer firmware tested on a host. The hardware is not: nothing has been built or taped out, and there's no chip layout yet. It's a research prototype with no independent review."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a token worth anything?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Right now, no. Nothing runs outside a test network, and the repo says its test keys and wallets must not hold value. Longer term it's an open question. Supply has no cap, and nothing lets you trade a token back for energy. Whether anyone would want to hold one is the idea being tested, not something the code proves."
           }
         }
       ]
@@ -100,6 +151,7 @@
     <a href="./" aria-label="Insomniac-VibeLabs home"><img class="mark" src="logo-400.jpg" alt="Insomniac-VibeLabs logo" width="72" height="72" style="margin-top:1.25rem"></a>
     <h1>enerchain</h1>
     <p class="tagline">Power is the new gold. Allegedly. We're testing the idea.</p>
+    <p class="fine updated">Last updated <time datetime="2026-10-09">October 9, 2026</time></p>
   </div>
 </header>
 
@@ -107,22 +159,52 @@
 
   <section>
     <h2>The short version</h2>
-    <p>Enerchain is a proposal for an electricity currency. A site gets two sealed meters, one at the solar array or generator and one where it connects to the grid. Each meter counts energy both ways and signs a record for every kilowatt-hour of net export. A public ledger checks both signatures and credits the smaller of the two counts. After that, the tokens move around like any other ledger asset. The code, docs and board files live in <a href="https://github.com/Insomniac-VibeLabs/enerchain">enerchain</a> on GitHub.</p>
+    <p>Enerchain is a proposal for an electricity currency. The pitch: when a site sends more power to the grid than it takes, hardware on the wire counts it and signs for it, one token per kilowatt-hour. It takes two sealed meters to do that, one where the power is made and one where it leaves, and a public ledger only credits what both of them back up. After that, the tokens move around like any other ledger asset. The code, docs and board files live in <a href="https://github.com/Insomniac-VibeLabs/enerchain">enerchain</a> on GitHub.</p>
     <p>The idea is that more and more of the economy runs on electricity, and generation is spreading out to rooftops. So why not denominate money in the thing everything runs on?</p>
+    <p>Fair warning up front: it's simulation and paperwork so far. No meter, board, or chip has been built.</p>
+  </section>
+
+  <section>
+    <h2>How a kilowatt-hour becomes a token</h2>
+    <p>Say a home array sends 10 kWh more to the grid than the house pulls from it. Here's what the design does with that.</p>
+    <figure class="shot">
+      <img src="og-enerchain.png" width="1280" height="720" alt="Diagram of a solar array feeding a house through one sealed meter, with a second sealed meter at the grid connection. Both meters send signed records down to a ledger.">
+      <figcaption>The whole idea on one napkin. Power flows left to right, and signed records drop down to the ledger.</figcaption>
+    </figure>
+    <ol class="diff">
+      <li><strong>Two meters watch the wire.</strong> One sits at the array's terminals and counts what the panels made. The other sits at the grid connection and counts what went out and what came in.</li>
+      <li><strong>A chip does the adding, not a program.</strong> Each meter ticks once per watt-hour, and a small dedicated chip keeps the running totals in fixed logic. There's no port for anything outside the seal to write a number in, and the totals are meant to survive a power cut.</li>
+      <li><strong>Every net kilowatt-hour, a token.</strong> Each time exports climb another 1,000 watt-hours past their previous high, net of imports, the chip mints one token and builds a short record of its running totals.</li>
+      <li><strong>A second chip signs it.</strong> A separate secure chip keeps the key inside and knows two commands: sign the record the counting chip hands over, or erase the key. The radio only forwards what's already signed.</li>
+      <li><strong>The ledger takes the lower count.</strong> It checks each meter's signature against its certified key, makes sure the totals only went up, and credits the smaller of the two token counts. Here that's 10 tokens.</li>
+    </ol>
+    <p>The records are running totals, so losing one costs nothing. The next one carries everything forward.</p>
   </section>
 
   <section>
     <h2>What's a little different about it</h2>
     <p>People have poked at energy tokens before, so here's what's unusual about this take.</p>
     <ul class="diff">
-      <li><strong>Hardware does the counting, not software.</strong> An inverter, a radio, or a server can report whatever number it likes. So the energy integral is computed inside a sealed meter, and tokens are minted inside a small chip that nothing outside the seal can write to.</li>
-      <li><strong>Two meters, one minimum.</strong> One meter sits at the generator, one at the grid connection. The ledger credits the smaller of the two, so a single meter can't mint on its own.</li>
+      <li><strong>Hardware does the counting, not software.</strong> An inverter, a radio, or a server can report whatever number it likes. So in the design, the adding-up happens in a purpose-built chip with no way in from outside, and a separate off-the-shelf secure chip does the signing. That one runs a tiny firmware image whose hash is published, so a swapped image doesn't verify.</li>
+      <li><strong>Two meters, the lower count wins.</strong> One sealed meter sits at the generator and vouches that the power was produced. Another sits at the grid connection and vouches that it left the site. Each has its own key. The ledger wants signatures from both before it credits anything, then goes with the lower count. So one meter can't mint alone, and a meter that's been fooled or opened up can't mint past what its partner saw.</li>
       <li><strong>Net export only.</strong> A battery that buys from the grid at night and sells back at noon doesn't raise the net-export mark, so it mints nothing. There's a test for it.</li>
       <li><strong>Every kilowatt-hour gets its own signature,</strong> using ML-DSA, a post-quantum scheme. The signer can't deny it later. Quantum-resistant under the standard, not quantum-proof.</li>
       <li><strong>One unit, any size of region.</strong> The same measurement language runs from a single feeder up to, someday, a planetary region trading with another.</li>
       <li><strong>It shows its homework.</strong> The repo includes a review that found the earlier board design couldn't have worked, a threat model, and a list of every assumption still to verify. It also says plainly that nothing has been built.</li>
     </ul>
     <p class="fine">A token doesn't prove the energy was renewable, that it displaced anything, or that it wasn't also sold to a utility somewhere else. That's a market-design question, and it's still open.</p>
+  </section>
+
+  <section>
+    <h2>What's in the repo today</h2>
+    <p>Four pieces. All of them are things you can read or run, and none of them is a physical object yet.</p>
+    <ul class="diff">
+      <li><strong>A Python devnet.</strong> A ledger, a wallet and a small test network, with the two-meter rule, meter certification, transfers and replay refusal. One command runs a demo. Blocks are ordered by a fixed set of validators for now, which is fine for a test network and not for a public one.</li>
+      <li><strong>Chip logic that simulates.</strong> The counting chip's Verilog runs end to end in simulation: setup, minting on net export, power cuts, the signer saying no, and a key wipe. Its output matches the Python model byte for byte.</li>
+      <li><strong>Signer firmware.</strong> The image for the secure chip. It makes its key once, remembers a wipe for good, and won't sign a record that goes backwards. It's been tested on a regular computer, not on the chip.</li>
+      <li><strong>A board design.</strong> Revision B board files, generated by a script, after a review found the earlier board couldn't have worked.</li>
+    </ul>
+    <p>Around those sit the whitepaper, a threat model, and the open-items list. Software and docs are Apache-2.0. The hardware files are CERN-OHL-S-2.0, which means anyone who builds on them has to share their changes the same way.</p>
   </section>
 
   <section>
@@ -171,11 +253,15 @@
     <h3>Is this like Bitcoin mining?</h3>
     <p>Pretty much the opposite direction. Proof-of-work spends a lot of electricity to order a ledger. Enerchain doesn't use that spending as the mint: injecting power into the grid is the mint, so the coin records electricity contributed instead of electricity burned.</p>
     <h3>How can anyone trust a meter's number?</h3>
-    <p>A site needs two sealed meters, one at the generator and one at the grid connection, and the ledger only credits the smaller of the two counts. The counting happens inside a small chip that nothing outside the seal can write to, and the signer only signs counters that go up. Opening the cover while powered wipes the key. Opening it while unpowered isn't caught yet, and the repo says so up front.</p>
+    <p>It takes two sealed meters, each with its own key: one at the generator and one at the grid connection. Both have to sign before the ledger credits anything, and it only credits the smaller of the two counts. By design, the counting is done by a small dedicated chip that nothing outside the seal can write to. A separate secure chip holds the key and signs only what that chip gives it, and only counters that go up. Opening the cover while powered wipes the key. Opening it while unpowered isn't caught yet, and the repo says so up front.</p>
+    <h3>Why two meters instead of one?</h3>
+    <p>One meter can only say that energy passed through it. It can't say where that energy came from. So the generator meter says the power was made, the grid meter says it left the site, net of what came in, and the ledger credits the smaller count. A meter with no partner mints nothing. The pairing also caps the damage: a meter that's been opened or fooled can't mint past what the other one saw. If one person controls both meters and opens them together while they're unpowered, that cap doesn't help. It's on the open-items list.</p>
     <h3>What stops someone from cycling a battery to farm coins?</h3>
     <p>Meters only mint on net export. A battery that buys from the grid at night and sells it back at noon never pushes the net-export high-water mark up, so it mints nothing. There's a test for exactly that.</p>
     <h3>Is it built?</h3>
     <p>The software is real and runs: a Python ledger, wallet and devnet, plus chip RTL that simulates end to end and signer firmware tested on a host. The hardware is not: nothing has been built or taped out, and there's no chip layout yet. It's a research prototype with no independent review.</p>
+    <h3>Is a token worth anything?</h3>
+    <p>Right now, no. Nothing runs outside a test network, and the repo says its test keys and wallets must not hold value. Longer term it's an open question. Supply has no cap, and nothing lets you trade a token back for energy. Whether anyone would want to hold one is the idea being tested, not something the code proves.</p>
   </section>
 
   <section>
