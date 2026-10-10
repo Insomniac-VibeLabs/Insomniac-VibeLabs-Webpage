@@ -5,7 +5,7 @@ Changes to the Insomniac-VibeLabs website, newest first. Entries before
 
 ## 2026-10-09
 
-All on branch `working`.
+Made on branch `working` and merged into `main` the same day.
 
 - Two-Key page title is now "Two-Key: two independent checks before an AI
   agent can act".
