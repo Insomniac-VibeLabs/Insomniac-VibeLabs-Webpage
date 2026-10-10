@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
-<title>two-key-concept: authorization for AI agents | Insomniac-VibeLabs</title>
+<title>Two-Key: two independent checks before an AI agent can act | Insomniac-VibeLabs</title>
 <meta name="description" content="Two-Key is an open source (Apache-2.0) prototype for AI agent security: two independent keys, a policy engine and one or more LLM judges, have to agree before an agent acts. Guardrails against prompt injection.">
 <link rel="canonical" href="https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/two-key.html">
 <meta property="og:type" content="article">
@@ -16,10 +16,10 @@
 <meta property="og:image:width" content="1280">
 <meta property="og:image:height" content="720">
 <meta property="og:image:alt" content="Diagram of an AI agent sending a proposed action to two separate checks, one labeled rules and one labeled judges. Both lead to a single check mark, and only then to the tool.">
-<meta property="og:title" content="two-key-concept: authorization for AI agents | Insomniac-VibeLabs">
+<meta property="og:title" content="Two-Key: two independent checks before an AI agent can act">
 <meta property="og:description" content="Two independent keys have to turn before an AI agent can act. A policy engine, one or more LLM judges, single-use capability tokens and an audit ledger. Open source prototype.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="two-key-concept: authorization for AI agents | Insomniac-VibeLabs">
+<meta name="twitter:title" content="Two-Key: two independent checks before an AI agent can act">
 <meta name="twitter:description" content="Two independent keys have to turn before an AI agent can act. A policy engine, one or more LLM judges, single-use capability tokens and an audit ledger. Open source prototype.">
 <meta name="twitter:image" content="https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/og-two-key.png">
 <meta name="twitter:image:alt" content="Diagram of an AI agent sending a proposed action to two separate checks, one labeled rules and one labeled judges. Both lead to a single check mark, and only then to the tool.">
@@ -33,7 +33,7 @@
   "@graph": [
     {
       "@type": "TechArticle",
-      "headline": "two-key-concept: authorization for AI agents",
+      "headline": "Two-Key: two independent checks before an AI agent can act",
       "description": "Two-Key is an open source (Apache-2.0) prototype for AI agent security: two independent keys, a policy engine and one or more LLM judges, have to agree before an agent acts. Guardrails against prompt injection.",
       "image": [
         "https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/og-two-key.png"
@@ -76,7 +76,7 @@
           "name": "How do you keep a prompt-injected AI agent from doing something dumb?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Two-Key never lets the agent hold the keys. The agent only proposes an action, and two separate checks have to say yes. The first is a rules-based policy engine: it ignores the chatty English and only looks at a few hard facts about the call, like which tool, how much money, what kind of data, who's on the receiving end, and whether it can be undone. If anything's off, or the engine hits an error, the answer is no. The second is one or more LLM judges, that are never the agent itself, vote on whether the action makes sense. Only when both agree does a short-lived, single-use token get issued. A hijacked agent can still ask, it just can't act on its own say-so."
+            "text": "Two-Key never lets the agent hold the keys. The agent only proposes an action, and two separate checks have to say yes. The first is a rules-based policy engine: it ignores the chatty English and only looks at a few hard facts about the call, like which tool, how much money, what kind of data, who's on the receiving end, and whether it can be undone. If anything's off, or the engine hits an error, the answer is no. The second is one or more LLM judges, never the agent itself, who vote on whether the action fits what the owner wrote down in plain language. Only when both agree does a short-lived, single-use token get issued. A hijacked agent can still ask, it just can't act on its own say-so."
           }
         },
         {
@@ -141,7 +141,7 @@
     <p>Plenty of folks are working on AI agent security, and a lot of it is good. A few choices here are a bit unusual, though, so here's the short version.</p>
     <ul class="diff">
       <li><strong>One key never listens to the agent.</strong> It checks the real arguments against hard rules and ignores whatever the agent says about them. If the claim and the actual bytes don't match, that's a no.</li>
-      <li><strong>The other key is the judges,</strong> and a judge can't be the agent in a different hat. It checks credentials, endpoints, and accounts at start-up and refuses to run if they overlap.</li>
+      <li><strong>The other key is the judges,</strong> and a judge can't be the agent in a different hat. At start-up it compares models, credentials, endpoints, and accounts, and refuses to run if a judge could be the agent.</li>
       <li><strong>Silence counts as no.</strong> A judge that's missing, confused, or too slow is not a yes, and a fault in the rules check is a deny.</li>
       <li><strong>The door key is picky.</strong> It's only minted in one place, works once, expires fast, and fits only the exact action that was approved. The part that runs the tool can check it but can't make one.</li>
       <li><strong>Both checks answer.</strong> On a well-formed call, even when the rules say no, the judges still weigh in, so the log tells the whole story. That log is encrypted and hash-chained too.</li>
@@ -219,7 +219,7 @@
   <section>
     <h2>Quick questions</h2>
     <h3>How do you keep a prompt-injected AI agent from doing something dumb?</h3>
-    <p>Two-Key never lets the agent hold the keys. The agent only proposes an action, and two separate checks have to say yes. The first is a rules-based policy engine: it ignores the chatty English and only looks at a few hard facts about the call, like which tool, how much money, what kind of data, who's on the receiving end, and whether it can be undone. If anything's off, or the engine hits an error, the answer is no. The second is one or more LLM judges, that are never the agent itself, vote on whether the action makes sense. Only when both agree does a short-lived, single-use token get issued. A hijacked agent can still ask, it just can't act on its own say-so.</p>
+    <p>Two-Key never lets the agent hold the keys. The agent only proposes an action, and two separate checks have to say yes. The first is a rules-based policy engine: it ignores the chatty English and only looks at a few hard facts about the call, like which tool, how much money, what kind of data, who's on the receiving end, and whether it can be undone. If anything's off, or the engine hits an error, the answer is no. The second is one or more LLM judges, never the agent itself, who vote on whether the action fits what the owner wrote down in plain language. Only when both agree does a short-lived, single-use token get issued. A hijacked agent can still ask, it just can't act on its own say-so.</p>
     <h3>How is this different from a prompt-injection filter or a guardrails library?</h3>
     <p>Filters look at the text and ask whether it seems bad. Two-Key asks a different question: is this action allowed, whatever the text says? It checks the real arguments against hard rules, has independent judges weigh in, and only then hands over a single-use token. The two ideas get along fine, and you can run a filter in front of it.</p>
     <h3>Is it ready for production?</h3>
