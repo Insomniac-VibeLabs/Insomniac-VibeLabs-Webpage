@@ -74,7 +74,7 @@
           "name": "How do you keep a prompt-injected AI agent from doing something dumb?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Two-Key never lets the agent hold the keys. The agent only proposes an action, and two separate checks have to say yes. The first is a rules-based policy engine: it ignores the chatty English and only looks at a few hard facts about the call, like which tool, how much money, what kind of data, who's on the receiving end, and whether it can be undone. If anything's off, or the engine hits an error, the answer is no. The second is one or more LLM judges, never the agent itself, who vote on whether the action fits what the owner wrote down in plain language. Only when both agree does a short-lived, single-use token get issued. A hijacked agent can still ask, it just can't act on its own say-so."
+            "text": "Two-Key never lets the agent hold the keys. The agent only proposes an action, and two separate checks have to say yes. The first is a rules-based policy engine: it ignores the chatty English and only looks at a few hard facts about the call, like which tool, how much money, what kind of data, who's on the receiving end, and whether it can be undone, plus any extra fields you define. If anything's off, or the engine hits an error, the answer is no. The second is one or more LLM judges, never the agent itself, who vote on whether the action fits what the owner wrote down in plain language. Only when both agree does a short-lived, single-use token get issued. A hijacked agent can still ask, it just can't act on its own say-so."
           }
         },
         {
@@ -98,7 +98,7 @@
           "name": "What does it work with?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Judges can be xAI/Grok, OpenAI, Anthropic, Gemini, or a local Ollama model. It's Python, and an MCP adapter is on the roadmap."
+            "text": "Any agent that can hand over its proposed action as data: Grok, ChatGPT, Claude, Gemini, or a local Ollama model. Judges can be xAI/Grok, OpenAI, Anthropic, Gemini, or Ollama too. It's Python 3.10 or later with one required dependency, and it isn't on PyPI yet, so you install it from git. An MCP proxy is built and in testing for 0.5.0."
           }
         }
       ]
@@ -126,7 +126,7 @@
 
   <section>
     <h2>The short version</h2>
-    <p>Two-Key is a small, open source take on AI agent security. An agent never holds the keys. It proposes an action, and two independent checks, a policy engine with hard rules and one or more LLM judges, both have to say yes before a single-use token lets the action happen. The code lives in <a href="https://github.com/Insomniac-VibeLabs/two-key">two-key</a> on GitHub. It grew out of the older two-key-concept repo, which is archived now, and its history came along.</p>
+    <p>Two-Key is a small, open source take on AI agent security. An agent never holds the keys. It proposes an action, and two independent checks, a policy engine with hard rules and one or more LLM judges, both have to say yes before a single-use token lets the action happen. It's built for agents that use tools, so think payments, emails, or changes to a record. The code lives in <a href="https://github.com/Insomniac-VibeLabs/two-key">two-key</a> on GitHub. It grew out of the older two-key-concept repo, which is archived now, and its history came along.</p>
     <figure class="shot">
       <img src="og-two-key.png" width="1280" height="720" alt="Diagram of an AI agent sending a proposed action to two separate checks, one labeled rules and one labeled judges. Both lead to a single check mark, and only then to the tool.">
       <figcaption>The agent asks. Two separate checks answer. The tool only runs if both said yes.</figcaption>
@@ -138,10 +138,12 @@
     <p>Plenty of folks are working on AI agent security, and a lot of it is good. A few choices here are a bit unusual, though, so here's the short version.</p>
     <ul class="diff">
       <li><strong>One key never listens to the agent.</strong> It checks the real arguments against hard rules and ignores whatever the agent says about them. If the claim and the actual bytes don't match, that's a no.</li>
-      <li><strong>The other key is the judges,</strong> and a judge can't be the agent in a different hat. At start-up it compares models, credentials, endpoints, and accounts, and refuses to run if a judge could be the agent.</li>
+      <li><strong>The other key is the judges,</strong> and a judge can't be the agent in a different hat. At start-up it compares models, credentials, endpoints, and accounts. It refuses to run if a judge holds the agent's credential, and it grumbles on stderr about the lookalikes. One judge is enough to start, and a stricter profile asks for judges from two different makers.</li>
       <li><strong>Silence counts as no.</strong> A judge that's missing, confused, or too slow is not a yes, and a fault in the rules check is a deny.</li>
-      <li><strong>The door key is picky.</strong> It's only minted in one place, works once, expires fast, and fits only the exact action that was approved. The part that runs the tool can check it but can't make one.</li>
+      <li><strong>The door key is picky.</strong> It's only minted in one place, works once, expires fast, and fits only the exact action that was approved. The part that runs the tool can check it but can't make one. (It lives in the same process, so that's a rule of the API, not a locked vault.)</li>
       <li><strong>Both checks answer.</strong> On a well-formed call, even when the rules say no, the judges still weigh in, so the log tells the whole story. That log is encrypted and hash-chained too.</li>
+      <li><strong>Facts come from your systems, not the agent.</strong> A rule like "this invoice matches its purchase order" can use a value your own code looks up, and it gets looked up again right before the tool runs. That's new in 0.5.0, which is still in testing.</li>
+      <li><strong>It can sit in front of an MCP server.</strong> Also 0.5.0: a proxy that shows the agent only the tools you signed and runs every call through both keys. It's built and being tested, not released yet.</li>
       <li><strong>It says what it isn't.</strong> No payload scanning, no antivirus, no independent audit yet. It's a different angle, not a silver bullet.</li>
     </ul>
     <p class="fine">Not a replacement for a content filter, a DLP product, or user login. It works fine next to them.</p>
@@ -160,50 +162,35 @@
           <span class="why">Policy VM, one or more judges, single-use tokens, an encrypted ledger, and key backup and recovery. The part that already works.</span>
         </li>
         <li>
-          <span class="tag">0.6</span>
+          <span class="tag">0.5.0</span>
           <span class="step">MCP adapter</span>
-          <span class="why">A checkpoint in front of MCP tool calls.</span>
+          <span class="why">A checkpoint in front of MCP tool calls. It&rsquo;s built on a branch and still getting live tests, but it isn&rsquo;t released yet.</span>
         </li>
         <li>
-          <span class="tag">0.4</span>
+          <span class="tag">0.6.0</span>
+          <span class="step">Virus and data-leak scanner hooks</span>
+          <span class="why">Plug in scanners that already exist. We&rsquo;re not writing our own. Faster judge connections ride along.</span>
+        </li>
+        <li>
+          <span class="tag">0.7.0</span>
           <span class="step">Ledger export for security monitoring</span>
           <span class="why">Send the audit trail to the tools that watch for trouble.</span>
         </li>
         <li>
-          <span class="tag">0.5</span>
-          <span class="step">Virus and data-leak scanner hooks</span>
-          <span class="why">Plug in scanners that already exist. We're not writing our own.</span>
-        </li>
-        <li>
-          <span class="tag">0.7</span>
-          <span class="step">Certificates and certificate recovery</span>
-          <span class="why">Proper identities for one person or a whole company, and a way back when one goes missing.</span>
-        </li>
-        <li>
-          <span class="tag">0.8</span>
-          <span class="step">Quantum-resistant signatures</span>
-          <span class="why">Hybrid signatures meant to hold up against future quantum computers.</span>
-        </li>
-        <li>
-          <span class="tag">0.9</span>
-          <span class="step">FIPS mode</span>
-          <span class="why">Run on a validated crypto module. The project itself still isn't validated.</span>
-        </li>
-        <li>
-          <span class="tag">0.10</span>
-          <span class="step">A local screen</span>
-          <span class="why">A small GUI for configuring things and auditing the ledger.</span>
-        </li>
-        <li>
-          <span class="tag">1.0</span>
+          <span class="tag">1.0.0</span>
           <span class="step">Public review, then release</span>
-          <span class="why">Community-reviewed, not audited.</span>
+          <span class="why">A judge history summary, then a community review and a release on PyPI. Community-reviewed, not audited.</span>
+        </li>
+        <li>
+          <span class="tag">After 1.0</span>
+          <span class="step">The grown-up stuff, not scheduled</span>
+          <span class="why">Certificates and recovery, quantum-resistant signatures, FIPS mode, a small local screen for configuring things, an optional reputation halt, and more field types.</span>
         </li>
       </ol>
-      <figcaption id="map-caption">The glowing dot is what exists today. Everything below it is planned, not built.</figcaption>
+      <figcaption id="map-caption">The glowing dot is what's released today. Everything below it is still ahead.</figcaption>
     </figure>
 
-    <p>Key backup and recovery already shipped, so losing a key isn't the end of the world anymore. Next up is the MCP checkpoint, since that's where a lot of agents actually live, then ledger export and scanner hooks. After that comes the grown-up identity stuff, then a screen so you don't have to hand-edit config files.</p>
+    <p>Key backup and recovery already shipped, so losing a key isn't the end of the world anymore. The MCP checkpoint is next, since that's where a lot of agents actually live, then scanner hooks, then ledger export, then a public review before 1.0. The bigger identity and crypto items wait until after that, and so does the screen so you don't have to hand-edit config files.</p>
     <p>Still pre-1.0 and still no independent audit, just maintainer review, live testing with real LLM judges, and automated scanners. The full plan, nitty-gritty included, is in the <a href="https://github.com/Insomniac-VibeLabs/two-key/blob/main/ROADMAP.md">roadmap</a> in the repo. Everything is public on <a href="https://github.com/Insomniac-VibeLabs">GitHub</a> if you want to poke around.</p>
   </section>
 
@@ -211,13 +198,13 @@
   <section>
     <h2>Quick questions</h2>
     <h3>How do you keep a prompt-injected AI agent from doing something dumb?</h3>
-    <p>Two-Key never lets the agent hold the keys. The agent only proposes an action, and two separate checks have to say yes. The first is a rules-based policy engine: it ignores the chatty English and only looks at a few hard facts about the call, like which tool, how much money, what kind of data, who's on the receiving end, and whether it can be undone. If anything's off, or the engine hits an error, the answer is no. The second is one or more LLM judges, never the agent itself, who vote on whether the action fits what the owner wrote down in plain language. Only when both agree does a short-lived, single-use token get issued. A hijacked agent can still ask, it just can't act on its own say-so.</p>
+    <p>Two-Key never lets the agent hold the keys. The agent only proposes an action, and two separate checks have to say yes. The first is a rules-based policy engine: it ignores the chatty English and only looks at a few hard facts about the call, like which tool, how much money, what kind of data, who's on the receiving end, and whether it can be undone, plus any extra fields you define. If anything's off, or the engine hits an error, the answer is no. The second is one or more LLM judges, never the agent itself, who vote on whether the action fits what the owner wrote down in plain language. Only when both agree does a short-lived, single-use token get issued. A hijacked agent can still ask, it just can't act on its own say-so.</p>
     <h3>How is this different from a prompt-injection filter or a guardrails library?</h3>
     <p>Filters look at the text and ask whether it seems bad. Two-Key asks a different question: is this action allowed, whatever the text says? It checks the real arguments against hard rules, has independent judges weigh in, and only then hands over a single-use token. The two ideas get along fine, and you can run a filter in front of it.</p>
     <h3>Is it ready for production?</h3>
     <p>Nope. It's a beta with no independent audit, and it isn't an antivirus or data-loss-prevention tool. The maintainer has reviewed it and run it against live LLM judges, but treat it as something to learn from and poke at, not something to lean on.</p>
     <h3>What does it work with?</h3>
-    <p>Judges can be xAI/Grok, OpenAI, Anthropic, Gemini, or a local Ollama model. It's Python, and an MCP adapter is on the roadmap.</p>
+    <p>Any agent that can hand over its proposed action as data: Grok, ChatGPT, Claude, Gemini, or a local Ollama model. Judges can be xAI/Grok, OpenAI, Anthropic, Gemini, or Ollama too. It's Python 3.10 or later with one required dependency, and it isn't on PyPI yet, so you install it from git. An MCP proxy is built and in testing for 0.5.0.</p>
   </section>
 
 
