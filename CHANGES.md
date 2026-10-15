@@ -3,6 +3,16 @@
 Changes to the Insomniac-VibeLabs website, newest first. Entries before
 2026-10-09 are in the commit history only.
 
+## 2026-10-15
+
+- Homepage and Two-Key page: the `two-key-concept` section now covers the
+  new `two-key` repo (link, description, GitHub topics, roadmap). It is
+  described as a beta, not a prototype. The roadmap shows 0.4.0 as today,
+  key backup as done, and the MCP adapter as next.
+- Removed the "Last updated" lines, the `dateModified` and
+  `article:modified_time` values, and the sitemap `lastmod` dates from every
+  page, and the unused `.updated` style from `style.css`.
+
 ## 2026-10-09
 
 Made on branch `working` and merged into `main` the same day.

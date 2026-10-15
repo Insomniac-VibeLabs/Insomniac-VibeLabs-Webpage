@@ -133,4 +133,3 @@
   .shot { margin: 1.25rem 0; }
   .shot img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; }
   .shot figcaption { margin-top: .6rem; color: var(--muted); font-size: .9rem; }
-  .updated { margin-top: .9rem; }
