@@ -5,11 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
 <title>Two-Key: two independent checks before an AI agent can act | Insomniac-VibeLabs</title>
-<meta name="description" content="Two-Key is an open source (Apache-2.0) prototype for AI agent security: two independent keys, a policy engine and one or more LLM judges, have to agree before an agent acts. Guardrails against prompt injection.">
+<meta name="description" content="Two-Key is an open source (Apache-2.0) beta for AI agent security: two independent keys, a policy engine and one or more LLM judges, have to agree before an agent acts. Guardrails against prompt injection.">
 <link rel="canonical" href="https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/two-key.html">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2026-10-09">
-<meta property="article:modified_time" content="2026-10-09">
 <meta property="og:url" content="https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/two-key.html">
 <meta property="og:site_name" content="Insomniac-VibeLabs">
 <meta property="og:image" content="https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/og-two-key.png">
@@ -17,10 +16,10 @@
 <meta property="og:image:height" content="720">
 <meta property="og:image:alt" content="Diagram of an AI agent sending a proposed action to two separate checks, one labeled rules and one labeled judges. Both lead to a single check mark, and only then to the tool.">
 <meta property="og:title" content="Two-Key: two independent checks before an AI agent can act">
-<meta property="og:description" content="Two independent keys have to turn before an AI agent can act. A policy engine, one or more LLM judges, single-use capability tokens and an audit ledger. Open source prototype.">
+<meta property="og:description" content="Two independent keys have to turn before an AI agent can act. A policy engine, one or more LLM judges, single-use capability tokens and an audit ledger. Open source beta.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Two-Key: two independent checks before an AI agent can act">
-<meta name="twitter:description" content="Two independent keys have to turn before an AI agent can act. A policy engine, one or more LLM judges, single-use capability tokens and an audit ledger. Open source prototype.">
+<meta name="twitter:description" content="Two independent keys have to turn before an AI agent can act. A policy engine, one or more LLM judges, single-use capability tokens and an audit ledger. Open source beta.">
 <meta name="twitter:image" content="https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/og-two-key.png">
 <meta name="twitter:image:alt" content="Diagram of an AI agent sending a proposed action to two separate checks, one labeled rules and one labeled judges. Both lead to a single check mark, and only then to the tool.">
 <meta name="robots" content="index, follow, max-image-preview:large">
@@ -34,12 +33,11 @@
     {
       "@type": "TechArticle",
       "headline": "Two-Key: two independent checks before an AI agent can act",
-      "description": "Two-Key is an open source (Apache-2.0) prototype for AI agent security: two independent keys, a policy engine and one or more LLM judges, have to agree before an agent acts. Guardrails against prompt injection.",
+      "description": "Two-Key is an open source (Apache-2.0) beta for AI agent security: two independent keys, a policy engine and one or more LLM judges, have to agree before an agent acts. Guardrails against prompt injection.",
       "image": [
         "https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/og-two-key.png"
       ],
       "datePublished": "2026-10-09",
-      "dateModified": "2026-10-09",
       "author": {
         "@type": "Organization",
         "name": "Insomniac-VibeLabs",
@@ -55,13 +53,13 @@
     },
     {
       "@type": "SoftwareSourceCode",
-      "name": "two-key-concept",
-      "description": "Two independent keys must turn before an AI agent can act. A policy engine, one or more LLM judges, single-use capability tokens and an encrypted audit ledger. Prototype, no independent review.",
+      "name": "two-key",
+      "description": "Two independent keys must turn before an AI agent can act. A policy engine, one or more LLM judges, single-use capability tokens and an encrypted audit ledger. Beta, maintainer-reviewed but not independently audited.",
       "url": "https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/two-key.html",
-      "codeRepository": "https://github.com/Insomniac-VibeLabs/two-key-concept",
+      "codeRepository": "https://github.com/Insomniac-VibeLabs/two-key",
       "programmingLanguage": "Python",
       "license": "https://www.apache.org/licenses/LICENSE-2.0",
-      "keywords": "agent security, agentic AI, AI agents, AI governance, AI safety, AI security, authorization, capability tokens, guardrails, LLM security, policy engine, prompt injection, LLM as a judge, audit log, agent authorization, policy as code",
+      "keywords": "agent authorization, agent security, agentic AI, AI agents, AI governance, AI safety, AI security, audit log, authorization, capability tokens, guardrails, LLM, LLM as a judge, LLM security, policy as code, policy engine, prompt injection, Python",
       "author": {
         "@type": "Organization",
         "name": "Insomniac-VibeLabs",
@@ -92,7 +90,7 @@
           "name": "Is it ready for production?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Nope. It's a prototype with no independent review, and it isn't an antivirus or data-loss-prevention tool. Treat it as a concept to learn from and poke at."
+            "text": "Nope. It's a beta with no independent audit, and it isn't an antivirus or data-loss-prevention tool. The maintainer has reviewed it and run it against live LLM judges, but treat it as something to learn from and poke at, not something to lean on."
           }
         },
         {
@@ -119,9 +117,8 @@
   <div class="wrap">
     <a class="back" href="./">&larr; <span class="org">Insomniac-VibeLabs</span></a>
     <a href="./" aria-label="Insomniac-VibeLabs home"><img class="mark" src="logo-400.jpg" alt="Insomniac-VibeLabs logo" width="72" height="72" style="margin-top:1.25rem"></a>
-    <h1>two-key-concept</h1>
+    <h1>two-key</h1>
     <p class="tagline">Two keys, one agent, and the agent doesn't get to hold either.</p>
-    <p class="fine updated">Last updated <time datetime="2026-10-09">October 9, 2026</time></p>
   </div>
 </header>
 
@@ -129,7 +126,7 @@
 
   <section>
     <h2>The short version</h2>
-    <p>Two-Key is a small, open source take on AI agent security. An agent never holds the keys. It proposes an action, and two independent checks, a policy engine with hard rules and one or more LLM judges, both have to say yes before a single-use token lets the action happen. The code lives in <a href="https://github.com/Insomniac-VibeLabs/two-key-concept">two-key-concept</a> on GitHub.</p>
+    <p>Two-Key is a small, open source take on AI agent security. An agent never holds the keys. It proposes an action, and two independent checks, a policy engine with hard rules and one or more LLM judges, both have to say yes before a single-use token lets the action happen. The code lives in <a href="https://github.com/Insomniac-VibeLabs/two-key">two-key</a> on GitHub. It grew out of the older two-key-concept repo, which is archived now, and its history came along.</p>
     <figure class="shot">
       <img src="og-two-key.png" width="1280" height="720" alt="Diagram of an AI agent sending a proposed action to two separate checks, one labeled rules and one labeled judges. Both lead to a single check mark, and only then to the tool.">
       <figcaption>The agent asks. Two separate checks answer. The tool only runs if both said yes.</figcaption>
@@ -145,27 +142,27 @@
       <li><strong>Silence counts as no.</strong> A judge that's missing, confused, or too slow is not a yes, and a fault in the rules check is a deny.</li>
       <li><strong>The door key is picky.</strong> It's only minted in one place, works once, expires fast, and fits only the exact action that was approved. The part that runs the tool can check it but can't make one.</li>
       <li><strong>Both checks answer.</strong> On a well-formed call, even when the rules say no, the judges still weigh in, so the log tells the whole story. That log is encrypted and hash-chained too.</li>
-      <li><strong>It says what it isn't.</strong> No payload scanning, no antivirus, no review yet. It's a different angle, not a silver bullet.</li>
+      <li><strong>It says what it isn't.</strong> No payload scanning, no antivirus, no independent audit yet. It's a different angle, not a silver bullet.</li>
     </ul>
     <p class="fine">Not a replacement for a content filter, a DLP product, or user login. It works fine next to them.</p>
   </section>
 
 
   <section>
-    <h2>Where two-key-concept is headed</h2>
+    <h2>Where two-key is headed</h2>
     <p>Okay, so there's a loose roadmap now. It's less a schedule and more a list of things we'd like to poke at next, roughly in the order they make sense. No dates, no promises, and the order can shuffle whenever a better idea shows up at 3 a.m.</p>
 
     <figure class="map" aria-labelledby="map-caption">
       <ol class="path">
         <li class="now">
-          <span class="tag">Today &middot; 0.2.1</span>
-          <span class="step">The prototype</span>
-          <span class="why">Policy VM, one or more judges, single-use tokens, and an encrypted ledger. The part that already works.</span>
+          <span class="tag">Today &middot; 0.4.0</span>
+          <span class="step">The beta</span>
+          <span class="why">Policy VM, one or more judges, single-use tokens, an encrypted ledger, and key backup and recovery. The part that already works.</span>
         </li>
         <li>
-          <span class="tag">0.3</span>
-          <span class="step">Key backup and recovery</span>
-          <span class="why">Because losing a key shouldn't be the end of the world.</span>
+          <span class="tag">0.6</span>
+          <span class="step">MCP adapter</span>
+          <span class="why">A checkpoint in front of MCP tool calls.</span>
         </li>
         <li>
           <span class="tag">0.4</span>
@@ -176,11 +173,6 @@
           <span class="tag">0.5</span>
           <span class="step">Virus and data-leak scanner hooks</span>
           <span class="why">Plug in scanners that already exist. We're not writing our own.</span>
-        </li>
-        <li>
-          <span class="tag">0.6</span>
-          <span class="step">MCP adapter</span>
-          <span class="why">A checkpoint in front of MCP tool calls.</span>
         </li>
         <li>
           <span class="tag">0.7</span>
@@ -211,8 +203,8 @@
       <figcaption id="map-caption">The glowing dot is what exists today. Everything below it is planned, not built.</figcaption>
     </figure>
 
-    <p>The rough idea: make it safer to lose a key, easier to see what happened, and friendlier to the tools people already use. Backups and monitoring come first, then scanner hooks and an MCP checkpoint. After that comes the grown-up identity stuff, then a screen so you don't have to hand-edit config files.</p>
-    <p>Still a prototype, still no independent review. The full plan, nitty-gritty included, is in the <a href="https://github.com/Insomniac-VibeLabs/two-key-concept/blob/main/ROADMAP.md">roadmap</a> in the repo. Everything is public on <a href="https://github.com/Insomniac-VibeLabs">GitHub</a> if you want to poke around.</p>
+    <p>Key backup and recovery already shipped, so losing a key isn't the end of the world anymore. Next up is the MCP checkpoint, since that's where a lot of agents actually live, then ledger export and scanner hooks. After that comes the grown-up identity stuff, then a screen so you don't have to hand-edit config files.</p>
+    <p>Still pre-1.0 and still no independent audit, just maintainer review, live testing with real LLM judges, and automated scanners. The full plan, nitty-gritty included, is in the <a href="https://github.com/Insomniac-VibeLabs/two-key/blob/main/ROADMAP.md">roadmap</a> in the repo. Everything is public on <a href="https://github.com/Insomniac-VibeLabs">GitHub</a> if you want to poke around.</p>
   </section>
 
 
@@ -223,7 +215,7 @@
     <h3>How is this different from a prompt-injection filter or a guardrails library?</h3>
     <p>Filters look at the text and ask whether it seems bad. Two-Key asks a different question: is this action allowed, whatever the text says? It checks the real arguments against hard rules, has independent judges weigh in, and only then hands over a single-use token. The two ideas get along fine, and you can run a filter in front of it.</p>
     <h3>Is it ready for production?</h3>
-    <p>Nope. It's a prototype with no independent review, and it isn't an antivirus or data-loss-prevention tool. Treat it as a concept to learn from and poke at.</p>
+    <p>Nope. It's a beta with no independent audit, and it isn't an antivirus or data-loss-prevention tool. The maintainer has reviewed it and run it against live LLM judges, but treat it as something to learn from and poke at, not something to lean on.</p>
     <h3>What does it work with?</h3>
     <p>Judges can be xAI/Grok, OpenAI, Anthropic, Gemini, or a local Ollama model. It's Python, and an MCP adapter is on the roadmap.</p>
   </section>
@@ -232,7 +224,7 @@
   <section>
     <h2>Disclaimer</h2>
     <p class="fine">Everything here, including the code, documentation, and this page, is provided "as is," without warranty of any kind, express or implied, including fitness for a particular purpose, accuracy, or non-infringement. <span class="org">Insomniac-VibeLabs</span> accepts no liability for any damages, losses, or other consequences arising from use of, or reliance on, any of it.</p>
-    <p class="fine">This is a hobby project and prototype. It hasn't had independent review, so don't count on it to protect, or pay for, anything that matters. See the repository for its license terms.</p>
+    <p class="fine">This is a hobby project and a beta. It hasn't had independent review, so don't count on it to protect, or pay for, anything that matters. See the repository for its license terms.</p>
   </section>
 
 </main>

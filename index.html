@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
 <title>Insomniac-VibeLabs: hobby projects built after dark</title>
-<meta name="description" content="Insomniac-VibeLabs is a hobby lab for ideas vibe coded at night. Current projects: Two-Key, an open source AI agent security prototype, and Enerchain, an electricity-as-currency research prototype with a Python devnet, chip RTL and board design.">
+<meta name="description" content="Insomniac-VibeLabs is a hobby lab for ideas vibe coded at night. Current projects: Two-Key, an open source AI agent security beta, and Enerchain, an electricity-as-currency research prototype with a Python devnet, chip RTL and board design.">
 <link rel="canonical" href="https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/">
@@ -15,10 +15,10 @@
 <meta property="og:image:height" content="720">
 <meta property="og:image:alt" content="Line drawing of a laptop on a desk at night under a crescent moon, with a mug beside it and two idea bubbles above: a pair of keys and an electricity meter.">
 <meta property="og:title" content="Insomniac-VibeLabs: hobby projects built after dark">
-<meta property="og:description" content="Ideas vibe coded at night, built on as a hobby. Two-Key (AI agent security) and Enerchain (electricity as currency). Open source prototypes.">
+<meta property="og:description" content="Ideas vibe coded at night, built on as a hobby. Two-Key (AI agent security) and Enerchain (electricity as currency). Open source projects.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Insomniac-VibeLabs: hobby projects built after dark">
-<meta name="twitter:description" content="Ideas vibe coded at night, built on as a hobby. Two-Key and Enerchain, open source prototypes.">
+<meta name="twitter:description" content="Ideas vibe coded at night, built on as a hobby. Two-Key and Enerchain, open source projects.">
 <meta name="twitter:image" content="https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/og-home.png">
 <meta name="twitter:image:alt" content="Line drawing of a laptop on a desk at night under a crescent moon, with a mug beside it and two idea bubbles above: a pair of keys and an electricity meter.">
 <meta name="robots" content="index, follow, max-image-preview:large">
@@ -43,14 +43,13 @@
       "@id": "https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/#site",
       "url": "https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/",
       "name": "Insomniac-VibeLabs",
-      "description": "Ideas vibe coded at night until sleep shows up, then built on as a hobby. Home of Two-Key (AI agent security) and Enerchain (electricity as currency), both prototypes.",
+      "description": "Ideas vibe coded at night until sleep shows up, then built on as a hobby. Home of Two-Key (AI agent security) and Enerchain (electricity as currency), one a beta, one a prototype.",
       "publisher": {
         "@id": "https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/#org"
       },
       "inLanguage": "en",
       "image": "https://insomniac-vibelabs.github.io/Insomniac-VibeLabs-Webpage/og-home.png",
-      "datePublished": "2026-10-05",
-      "dateModified": "2026-10-09"
+      "datePublished": "2026-10-05"
     }
   ]
 }
@@ -73,7 +72,6 @@
     </div>
     <h1 class="org">Insomniac-VibeLabs</h1>
     <p class="tagline">Can't sleep? Build something.</p>
-    <p class="fine updated">Last updated <time datetime="2026-10-09">October 9, 2026</time></p>
   </div>
 </header>
 
@@ -90,26 +88,30 @@
     <p>Two projects so far, and they don't have a lot in common except the hour they were dreamed up. One is about keeping AI agents on a leash, the other is about money made from electricity. That's where the 3 a.m. thoughts went, not a declared focus.</p>
     <ul class="repos">
       <li>
-        <a class="name" href="https://github.com/Insomniac-VibeLabs/two-key-concept" title="two-key-concept on GitHub: authorization for AI agents">two-key-concept</a>
+        <a class="name" href="https://github.com/Insomniac-VibeLabs/two-key" title="two-key on GitHub: authorization for AI agents">two-key</a>
         <p class="hook">Most agent guardrails ask an AI to police an AI. This one makes the AI's say-so not enough on its own.</p>
-        <p>A small, open source take on AI agent security and authorization: two independent keys have to turn before an agent can act. One key is a policy engine with hard rules, the other is one or more LLM judges, and a single-use capability token only gets minted when both say yes. Every call lands in an encrypted audit ledger. Think of it as a guardrail that sits between an agent and its tools, handy against prompt injection and agents that get a little too creative. It's a prototype, Apache-2.0, and it doesn't scan payloads.</p>
+        <p>A small, open source take on AI agent security and authorization: two independent keys have to turn before an agent can act. One key is a policy engine with hard rules, the other is one or more LLM judges, and a single-use capability token only gets minted when both say yes. Every call lands in an encrypted audit ledger, and anything that goes wrong counts as a no. Think of it as a guardrail that sits between an agent and its tools, handy against prompt injection and agents that get a little too creative. It started life as two-key-concept and has moved into this repo, history and all. It\'s a beta, Apache-2.0, maintainer-reviewed but not independently audited, and it doesn\'t scan payloads.</p>
         <p class="topics" aria-label="Topics">
-          <a href="https://github.com/topics/agent-security">agent security</a>
-          <a href="https://github.com/topics/ai-agents">AI agents</a>
-          <a href="https://github.com/topics/ai-safety">AI safety</a>
-          <a href="https://github.com/topics/ai-governance">AI governance</a>
-          <a href="https://github.com/topics/guardrails">guardrails</a>
-          <a href="https://github.com/topics/prompt-injection">prompt injection</a>
-          <a href="https://github.com/topics/llm-security">LLM security</a>
-          <a href="https://github.com/topics/authorization">authorization</a>
-          <a href="https://github.com/topics/policy-engine">policy engine</a>
-          <a href="https://github.com/topics/capability-tokens">capability tokens</a>
           <a href="https://github.com/topics/agent-authorization">agent authorization</a>
-          <a href="https://github.com/topics/llm-as-a-judge">LLM as a judge</a>
+          <a href="https://github.com/topics/agent-security">agent security</a>
+          <a href="https://github.com/topics/agentic-ai">agentic AI</a>
+          <a href="https://github.com/topics/ai-agents">AI agents</a>
+          <a href="https://github.com/topics/ai-governance">AI governance</a>
+          <a href="https://github.com/topics/ai-saftey">AI safety</a>
+          <a href="https://github.com/topics/ai-security">AI security</a>
           <a href="https://github.com/topics/audit-log">audit log</a>
+          <a href="https://github.com/topics/authorization">authorization</a>
+          <a href="https://github.com/topics/capability-tokens">capability tokens</a>
+          <a href="https://github.com/topics/guardrails">guardrails</a>
+          <a href="https://github.com/topics/llm">LLM</a>
+          <a href="https://github.com/topics/llm-as-judge">LLM as a judge</a>
+          <a href="https://github.com/topics/llm-security">LLM security</a>
           <a href="https://github.com/topics/policy-as-code">policy as code</a>
+          <a href="https://github.com/topics/policy-engine">policy engine</a>
+          <a href="https://github.com/topics/prompt-injection">prompt injection</a>
+          <a href="https://github.com/topics/python">Python</a>
         </p>
-        <a class="more" href="two-key.html">More about two-key-concept &rarr;</a>
+        <a class="more" href="two-key.html">More about two-key &rarr;</a>
       </li>
       <li>
         <a class="name" href="https://github.com/Insomniac-VibeLabs/enerchain" title="Enerchain on GitHub: electricity as currency">enerchain</a>
@@ -147,7 +149,7 @@
     <p>Each project has its own page with more of the story: what makes it a bit different, where it could go, and some of the usual questions. No particular order, start wherever you like.</p>
     <ul class="pages">
       <li>
-        <a href="two-key.html">two-key-concept</a>
+        <a href="two-key.html">two-key</a>
         <p>Authorization for AI agents. What's different about it, the roadmap, and quick questions about prompt injection and guardrails.</p>
       </li>
       <li>
