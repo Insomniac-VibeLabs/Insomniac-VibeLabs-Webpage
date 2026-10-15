@@ -160,50 +160,35 @@
           <span class="why">Policy VM, one or more judges, single-use tokens, an encrypted ledger, and key backup and recovery. The part that already works.</span>
         </li>
         <li>
-          <span class="tag">0.6</span>
+          <span class="tag">0.5.0</span>
           <span class="step">MCP adapter</span>
-          <span class="why">A checkpoint in front of MCP tool calls.</span>
+          <span class="why">A checkpoint in front of MCP tool calls. It&rsquo;s built on a branch and still getting live tests, but it isn&rsquo;t released yet.</span>
         </li>
         <li>
-          <span class="tag">0.4</span>
+          <span class="tag">0.6.0</span>
+          <span class="step">Virus and data-leak scanner hooks</span>
+          <span class="why">Plug in scanners that already exist. We&rsquo;re not writing our own. Faster judge connections ride along.</span>
+        </li>
+        <li>
+          <span class="tag">0.7.0</span>
           <span class="step">Ledger export for security monitoring</span>
           <span class="why">Send the audit trail to the tools that watch for trouble.</span>
         </li>
         <li>
-          <span class="tag">0.5</span>
-          <span class="step">Virus and data-leak scanner hooks</span>
-          <span class="why">Plug in scanners that already exist. We're not writing our own.</span>
-        </li>
-        <li>
-          <span class="tag">0.7</span>
-          <span class="step">Certificates and certificate recovery</span>
-          <span class="why">Proper identities for one person or a whole company, and a way back when one goes missing.</span>
-        </li>
-        <li>
-          <span class="tag">0.8</span>
-          <span class="step">Quantum-resistant signatures</span>
-          <span class="why">Hybrid signatures meant to hold up against future quantum computers.</span>
-        </li>
-        <li>
-          <span class="tag">0.9</span>
-          <span class="step">FIPS mode</span>
-          <span class="why">Run on a validated crypto module. The project itself still isn't validated.</span>
-        </li>
-        <li>
-          <span class="tag">0.10</span>
-          <span class="step">A local screen</span>
-          <span class="why">A small GUI for configuring things and auditing the ledger.</span>
-        </li>
-        <li>
-          <span class="tag">1.0</span>
+          <span class="tag">1.0.0</span>
           <span class="step">Public review, then release</span>
-          <span class="why">Community-reviewed, not audited.</span>
+          <span class="why">A judge history summary, then a community review and a release on PyPI. Community-reviewed, not audited.</span>
+        </li>
+        <li>
+          <span class="tag">After 1.0</span>
+          <span class="step">The grown-up stuff, not scheduled</span>
+          <span class="why">Certificates and recovery, quantum-resistant signatures, FIPS mode, a small local screen for configuring things, an optional reputation halt, and more field types.</span>
         </li>
       </ol>
-      <figcaption id="map-caption">The glowing dot is what exists today. Everything below it is planned, not built.</figcaption>
+      <figcaption id="map-caption">The glowing dot is what's released today. Everything below it is still ahead.</figcaption>
     </figure>
 
-    <p>Key backup and recovery already shipped, so losing a key isn't the end of the world anymore. Next up is the MCP checkpoint, since that's where a lot of agents actually live, then ledger export and scanner hooks. After that comes the grown-up identity stuff, then a screen so you don't have to hand-edit config files.</p>
+    <p>Key backup and recovery already shipped, so losing a key isn't the end of the world anymore. The MCP checkpoint is next, since that's where a lot of agents actually live, then scanner hooks, then ledger export, then a public review before 1.0. The bigger identity and crypto items wait until after that, and so does the screen so you don't have to hand-edit config files.</p>
     <p>Still pre-1.0 and still no independent audit, just maintainer review, live testing with real LLM judges, and automated scanners. The full plan, nitty-gritty included, is in the <a href="https://github.com/Insomniac-VibeLabs/two-key/blob/main/ROADMAP.md">roadmap</a> in the repo. Everything is public on <a href="https://github.com/Insomniac-VibeLabs">GitHub</a> if you want to poke around.</p>
   </section>
 

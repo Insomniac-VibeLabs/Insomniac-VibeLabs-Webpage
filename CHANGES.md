@@ -9,6 +9,10 @@ Changes to the Insomniac-VibeLabs website, newest first. Entries before
   new `two-key` repo (link, description, GitHub topics, roadmap). It is
   described as a beta, not a prototype. The roadmap shows 0.4.0 as today,
   key backup as done, and the MCP adapter as next.
+- Two-Key page: the roadmap diagram follows the `mcp-proxy` branch's roadmap
+  (0.5.0 MCP adapter, 0.6.0 scanner hooks, 0.7.0 ledger export, 1.0.0
+  review and release, then the after-1.0 items). The steps had been out of
+  version order.
 - Removed the "Last updated" lines, the `dateModified` and
   `article:modified_time` values, and the sitemap `lastmod` dates from every
   page, and the unused `.updated` style from `style.css`.
