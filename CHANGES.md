@@ -3,6 +3,23 @@
 Changes to the Insomniac-VibeLabs website, newest first. Entries before
 2026-10-09 are in the commit history only.
 
+## 2026-10-21
+
+Brought the pages up to date with the `working` branch of `two-key`.
+
+- Two-Key page: the roadmap diagram now shows 0.4.0 to 0.6.0 as shipped
+  (filled dots), 0.7.0 as today, the unreleased set-up work (`two-key
+  setup`, `config set` and `undo`, a passphrase-encrypted principal key) as
+  next, then 1.0.0 and the after-1.0 items. New `.done` dot style in
+  `style.css`.
+- Two-Key page: the MCP proxy and caller-supplied facts are no longer "in
+  testing". Added the scanner hooks (0.6.0), the SIEM export (0.7.0), and
+  the start-up check on the agent's account. The package is on PyPI, so the
+  "install from git" line is gone, and Python is 3.10 to 3.14. It now says
+  agents on another machine still need more live testing.
+- Homepage: the `two-key` card matches (MCP proxy, scanner hooks, SIEM,
+  on PyPI).
+
 ## 2026-10-15
 
 - Homepage and Two-Key page: the `two-key-concept` section now covers the

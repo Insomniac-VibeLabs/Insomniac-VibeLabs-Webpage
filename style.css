@@ -109,6 +109,7 @@
     width: .7rem; height: .7rem; border-radius: 50%;
     border: 1px solid var(--moon); background: var(--panel);
   }
+  .path li.done::after { background: var(--moon); opacity: .55; }
   .path li.now::after {
     background: var(--moon);
     box-shadow: 0 0 14px 2px rgba(209, 188, 161, .35);
