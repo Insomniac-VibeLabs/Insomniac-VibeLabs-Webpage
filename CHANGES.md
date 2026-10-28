@@ -3,6 +3,13 @@
 Changes to the Insomniac-VibeLabs website, newest first. Entries before
 2026-10-09 are in the commit history only.
 
+## 2026-10-28
+
+Brought the pages up to date with Two-Key 0.8.0.
+
+- Two-Key page: roadmap now shows 0.7.0 and 0.7.3 as shipped, 0.8.0 as today, 0.9.0 as next, then 1.0.0 as the first stable release. New "Judges remember" bullet and a new "Two little windows" section with screenshots of `two-key ledger-view` and `two-key constitution-editor` (`two-key-ledger-view.png`, `two-key-constitution-editor.png`). PyPI version is 0.8.0.
+- Homepage: the `two-key` card mentions the judge history and the two windows.
+
 ## 2026-10-21
 
 Brought the pages up to date with the `working` branch of `two-key`.

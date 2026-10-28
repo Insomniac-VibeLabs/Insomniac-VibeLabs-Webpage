@@ -90,7 +90,7 @@
           "name": "What does it work with?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Any agent that can hand over its proposed action as data: Grok, ChatGPT, Claude, Gemini, or a local Ollama model. Judges can be xAI/Grok, OpenAI, Anthropic, Gemini, or Ollama too. It's Python 3.10 to 3.14 with one required dependency, and it's on PyPI now (0.7.0), so a plain pip install does it. There's an MCP proxy too, for putting it in front of an existing tool server."
+            "text": "Any agent that can hand over its proposed action as data: Grok, ChatGPT, Claude, Gemini, or a local Ollama model. Judges can be xAI/Grok, OpenAI, Anthropic, Gemini, or Ollama too. It's Python 3.10 to 3.14 with one required dependency, and it's on PyPI now (0.8.0), so a plain pip install does it. There's an MCP proxy too, for putting it in front of an existing tool server."
           }
         }
       ]
@@ -138,8 +138,23 @@
       <li><strong>It sits in front of an MCP server.</strong> A proxy shows the agent only the tools you signed and runs every call through both keys. It can draft the tool specs from the server's own schemas, and you review and sign them.</li>
       <li><strong>It borrows scanners instead of faking one.</strong> If you already run an antivirus or DLP product, Two-Key can call it before the keys decide. It doesn't scan anything itself.</li>
       <li><strong>It can tell your SIEM.</strong> Each decision can be copied to syslog or an HTTPS webhook as it's written, with reason codes and digests but never the arguments. If the collector is down, decisions carry on.</li>
+      <li><strong>Judges remember.</strong> Each judge gets a short summary of recent decisions from the ledger, so a repeated bill or a pile of denied attempts looks odd instead of normal. It only holds codes, counts and amounts, never text an attacker wrote. Each judge's vote is also recorded, minus its reasoning text.</li>
     </ul>
     <p class="fine">Not a replacement for a content filter, a DLP product, or user login. It works fine next to them.</p>
+  </section>
+
+
+  <section>
+    <h2>Two little windows</h2>
+    <p>Not everyone wants to read a ledger in a terminal or hand-edit YAML at midnight, so 0.8.0 adds two small desktop windows. Both are optional and both run on your own machine.</p>
+    <figure class="shot">
+      <img src="two-key-ledger-view.png" width="1400" height="760" alt="The Two-Key ledger viewer showing six decision entries filtered from a verified ledger, with one denied entry selected and its details below.">
+      <figcaption><code>two-key ledger-view</code> is a read-only look at the audit ledger. It checks the hash chain when it opens, and you can filter, search, and pick which columns to see.</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="two-key-constitution-editor.png" width="1200" height="900" alt="The Two-Key constitution editor on the Tools tab, listing two tools and the argument mappings for pay_vendor.">
+      <figcaption><code>two-key constitution-editor</code> edits the judges' text, tools and rules, lets you try a call, and signs the result the same way <code>sign-constitution</code> does.</figcaption>
+    </figure>
   </section>
 
 
@@ -164,31 +179,41 @@
           <span class="step">Scanner hooks and Windows</span>
           <span class="why">Plug in the antivirus or data-leak scanner you already run. Windows works now, and judge connections get reused.</span>
         </li>
-        <li class="now">
-          <span class="tag">Today &middot; 0.7.0</span>
+        <li class="done">
+          <span class="tag">0.7.0</span>
           <span class="step">Ledger export for security monitoring</span>
           <span class="why">The audit trail goes to your SIEM as it&rsquo;s written. It&rsquo;s also the first release on PyPI.</span>
         </li>
-        <li>
-          <span class="tag">Next, already in the repo</span>
+        <li class="done">
+          <span class="tag">0.7.3</span>
           <span class="step">Easier set-up</span>
-          <span class="why">A two-key setup command, one-setting-at-a-time changes with an undo, and a principal key you can lock with a passphrase. Not released yet.</span>
+          <span class="why">A two-key setup command, one-setting-at-a-time changes with an undo, and a principal key you can lock with a passphrase.</span>
+        </li>
+        <li class="now">
+          <span class="tag">Today &middot; 0.8.0</span>
+          <span class="step">Judges see history, and two little windows</span>
+          <span class="why">Judges get a summary of recent decisions, so a repeated bill or a burst of denials stands out. Each judge&rsquo;s vote is recorded. One proxy per agent. A ledger viewer and a constitution editor, both small windows.</span>
+        </li>
+        <li>
+          <span class="tag">Next &middot; 0.9.0</span>
+          <span class="step">The last beta</span>
+          <span class="why">An optional check on the tool side, a live run with the agent on another machine, a quickstart, and file formats frozen for 1.0.</span>
         </li>
         <li>
           <span class="tag">1.0.0</span>
-          <span class="step">Public review, then release</span>
-          <span class="why">A judge history summary, then a community review and the 1.0 release. Community-reviewed, not audited.</span>
+          <span class="step">Public review, then the first stable release</span>
+          <span class="why">A community review of 0.9.0, then 1.0. Community-reviewed, not audited.</span>
         </li>
         <li>
           <span class="tag">After 1.0</span>
           <span class="step">The grown-up stuff, not scheduled</span>
-          <span class="why">Certificates and recovery, quantum-resistant signatures, FIPS mode, a small local screen for configuring things, an optional reputation halt, and more field types.</span>
+          <span class="why">Certificates and recovery, quantum-resistant signatures, FIPS mode, a fuller local screen for configuring things, an optional reputation halt, and more field types.</span>
         </li>
       </ol>
       <figcaption id="map-caption">The glowing dot is what's released today. The filled dots above it already shipped, and everything below it is still ahead.</figcaption>
     </figure>
 
-    <p>The MCP proxy, the scanner hooks and the ledger export have all shipped, in that order, and the package is on PyPI. Next up is making set-up less fiddly, since there are a lot of settings. Then the judge history summary and a public review before 1.0. Before that review there's one more thing to test properly: an agent connecting from another machine. Today the proxy only talks over stdio, so that goes through SSH, and it's only been checked in one container. The bigger identity and crypto items wait until after 1.0, and so does the screen so you don't have to hand-edit config files.</p>
+    <p>The MCP proxy, the scanner hooks, the ledger export, the set-up commands and now the judge history have all shipped, and the package is on PyPI. Next is 0.9.0, the last beta, then a public review before 1.0. Before that review there's one more thing to test properly: an agent connecting from another machine. Today the proxy only talks over stdio, so that goes through SSH, and it's only been checked in one container. The bigger identity and crypto items wait until after 1.0.</p>
     <p>Still pre-1.0 and still no independent audit, just maintainer review, live testing with real LLM judges and agents, and automated scanners. The full plan, nitty-gritty included, is in the <a href="https://github.com/Insomniac-VibeLabs/two-key/blob/main/ROADMAP.md">roadmap</a> in the repo. Everything is public on <a href="https://github.com/Insomniac-VibeLabs">GitHub</a> if you want to poke around.</p>
   </section>
 
@@ -200,7 +225,7 @@
     <h3>How is this different from a prompt-injection filter or a guardrails library?</h3>
     <p>Filters look at the text and ask whether it seems bad. Two-Key asks a different question: is this action allowed, whatever the text says? It checks the real arguments against hard rules, has independent judges weigh in, and only then hands over a single-use token. The two ideas get along fine, and you can run a filter in front of it.</p>
     <h3>What does it work with?</h3>
-    <p>Any agent that can hand over its proposed action as data: Grok, ChatGPT, Claude, Gemini, or a local Ollama model. Judges can be xAI/Grok, OpenAI, Anthropic, Gemini, or Ollama too. It's Python 3.10 to 3.14 with one required dependency, and it's on PyPI now (0.7.0), so a plain pip install does it. There's an MCP proxy too, for putting it in front of an existing tool server.</p>
+    <p>Any agent that can hand over its proposed action as data: Grok, ChatGPT, Claude, Gemini, or a local Ollama model. Judges can be xAI/Grok, OpenAI, Anthropic, Gemini, or Ollama too. It's Python 3.10 to 3.14 with one required dependency, and it's on PyPI now (0.8.0), so a plain pip install does it. There's an MCP proxy too, for putting it in front of an existing tool server.</p>
   </section>
 
 
